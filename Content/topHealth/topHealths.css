@@ -1,0 +1,1094 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #302124;
+}
+
+img {
+    max-width: 100%
+}
+
+ul {
+    padding: 0;
+    margin: 0
+}
+
+li {
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    -moz-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+a:focus,
+a:active {
+    outline: 0;
+    color: #666;
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.center-align {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-aligan: center;
+    -webkit-align-items: center;
+    align-items: center
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-family: "Isabella";
+}
+
+.container-fluid {
+    max-width: 1830px;
+}
+
+p {
+    font-size: 1.3rem;
+    line-height: 1.6em;
+}
+
+.faq-section .mb-0>a {
+    display: block;
+    position: relative;
+}
+
+.faq-section .mb-0>a:after {
+    content: "\f067";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    right: 0;
+    font-weight: 600;
+}
+
+.faq-section .mb-0>a[aria-expanded="true"]:after {
+    content: "\f068";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+}
+
+.custom {
+    padding: 100px 0;
+}
+
+.banner {
+    background-color: #302124;
+    color: #FFF;
+}
+
+.banner h1 {
+    font-size: 8rem;
+    color: #fffbf7;
+}
+
+h2 {
+    font-size: 4.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.welcome {
+    background-color: #fffbf7;
+}
+
+.we_serve {
+    background: #f1e5d8;
+}
+
+.why_choose {
+    background: #302124;
+}
+
+.why_choose h2 {
+    color: #FFF;
+}
+
+.work_area {
+    background: #fffbf7;
+}
+
+.work_area .content_area {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.work_area h3 {
+    font-weight: 700;
+    max-width: 400px;
+    min-width: 400px;
+    line-height: 2.5rem;
+}
+
+.work_area .content_area span {
+    color: #f1e5d8;
+    font-size: 7.4rem;
+    font-family: "Isabella";
+}
+
+.trust_area {
+    background: #f1e5d8;
+}
+
+.trust_area h2 {
+    font-size: 6.5rem;
+}
+
+.trust_area h2 span {
+    color: #db978b;
+}
+
+.btn_btn {
+    background: #c06f33;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 1rem 6rem;
+    display: inline-block;
+    font-size: 1rem;
+    margin-top: 2rem;
+    border-radius: 50px;
+}
+
+a.btn_btn.homebtnchange {
+    margin-left: 25px;
+}
+
+#accordion .card {
+    background-color: #302124;
+    color: #fff;
+    border-top: 1px solid #6e4b49;
+    border-bottom: 1px solid #6e4b49;
+    padding: 1.7rem 0;
+}
+
+#accordion .card a {
+    color: #fff;
+}
+
+#accordion .card-header h5 a {
+    font-size: 1.3rem;
+}
+
+.we_serve p {
+    font-size: 1.7rem;
+}
+
+.we_serve p strong {
+    border-bottom: 3px solid #db978b;
+}
+
+.section_telemedicine_platform {
+    background-image: url('./images/Fixed_Background.jpeg');
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.overlaping {
+    position: absolute;
+    background: #353b51;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .7;
+}
+
+.section_trusted_paragraph h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 5rem;
+    position: relative;
+}
+
+.section_development_process {
+    background-color: #302124;
+    padding: 50px 0;
+}
+
+.development_initial {
+    gap: 15px;
+    display: flex;
+    margin-top: 5%;
+}
+
+.development_goals {
+    padding: 13px;
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(180deg, #fff, rgba(0, 0, 0, 0)) 1;
+    width: 100%;
+    text-align: center;
+    border-top: 2px solid #fff !important;
+}
+
+.development_goals h4 {
+    color: #fff;
+    height: 50px;
+    min-height: 50px;
+    font-size: 18px;
+}
+
+.development_goals img {
+    display: flex;
+    margin: auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 7px 7px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / .1);
+}
+
+.development_goals p {
+    color: #fff;
+}
+
+.development_textstyle h2 {
+    color: #fff;
+    text-align: center;
+}
+
+.hipaa_complients .secondpara h4 {
+    margin-top: 30px;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.section_media_object {
+    display: flex;
+    padding: 5px 0;
+}
+
+.section_about_us .secondimg img {
+    width: 75%;
+    border-radius: 100%;
+    outline: 3px solid #302124;
+}
+
+.secondimg img {
+    padding: 5px;
+}
+
+.secondpara p {
+    font-size: 1rem;
+}
+
+.section_choosevcdoctor h2 {
+    margin-bottom: 0;
+}
+
+.section_telemedicine_platform.telehealth {
+    text-align: center;
+    padding: 0;
+    position: relative;
+    background-size: cover;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+}
+
+.section_trusted_paragraph p {
+    color: #fff;
+}
+
+.section_choosevcdoctor ul li {
+    list-style: none;
+    padding-bottom: 10px;
+    font-size: 1rem;
+}
+
+.section_choosevcdoctor ul li i {
+    color: #302124;
+    margin-right: 5px;
+}
+
+.class_section_blocingone .domain-sec-5 {
+    background-color: #f1e5d8;
+}
+
+.domain-sec-5 .domain-sec-5-feature .feature-block .feature-content .heading {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 45px;
+    color: #fff;
+}
+
+.domain-sec-5 .domain-sec-5-feature .feature-block .feature-content .description {
+    font-weight: 40;
+    font-size: 14px;
+    line-height: 28px;
+    color: #fff;
+}
+
+.domain-sec-5 .domain-sec-5-content .heading {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 50px;
+    color: #fff;
+}
+
+.domain-sec-5 .domain-sec-5-content .description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #fff;
+    padding-top: 20px;
+}
+
+.class_section_blocing .domain-sec-5 {
+    background-color: #302124;
+}
+
+article,
+body,
+div,
+footer,
+header,
+hr,
+html,
+main,
+nav,
+section {
+    max-width: none;
+}
+
+.section_obstacles_sec .domain-sec-5-feature .feature-icon img {
+    max-width: 100px;
+    filter: brightness(0) invert(1);
+}
+
+.domain-sec-5 .domain-sec-5-feature .feature-block .feature-content {
+    padding-left: 40px;
+}
+
+.top-platforms-detail-section .section_box_blog_in h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.top-platforms-detail-section .section_box_blog_in h2 span {
+    color: #302124;
+}
+
+.top-platforms-detail-section .top_section_plat_form {
+    margin-top: 30px;
+}
+
+.top-platforms-detail-section .top_section_plat_form h4 {
+    font-size: 22px;
+}
+
+.top-platforms-detail-section .top_section_plat_form p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.top-platforms-detail-section .top_section_plat_form a {
+    display: flex;
+    background: #302124;
+    color: #fff;
+    width: 45%;
+    border-radius: 70px;
+    padding: 10px 18px;
+    height: 45px;
+}
+
+.top-platforms-detail-section .top_section_plat_form img {
+    object-fit: cover;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .2);
+}
+
+.feature_dermotology .heading_dermotology h2 {
+    font-size: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.section_dermotology {
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .2);
+    padding: 30px 15px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid #302124;
+}
+
+.section_dermotology img {
+    max-width: 70px;
+    margin-bottom: 20px;
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.section_dermotology h4 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.section_dermotology a {
+    background-color: #302124;
+    padding: 8px 20px;
+    border-radius: 50px;
+    color: #fff;
+}
+
+section.feature_dermotology.pt-4.pb-4 {
+    background: #f1e5d8;
+}
+
+.heading_dermotology p {
+    text-align: center;
+    padding: 0;
+}
+
+.feature_dermotology .col-lg-4.col-md-6 {
+    margin-top: 20px;
+}
+
+section.feature_dermotology.pt-4.pb-4 .section_dermotology {
+    box-shadow: none;
+    background: #fff;
+    height: 280px;
+}
+
+.feature_explorecta._text {
+    background-color: #302124;
+    padding: 50px;
+    border-radius: 15px;
+    margin: auto;
+}
+
+.feature_explorecta._text h2 {
+    color: #fff;
+    text-align: center;
+    font-family: auto;
+    font-size: 2.5rem;
+}
+
+.feature_explorecta._text p {
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ctabtn {
+    gap: 20px;
+    justify-content: center;
+    display: flex;
+}
+
+.feature_explorecta._text a {
+    display: block;
+    width: fit-content;
+}
+
+.appointment_section_bg {
+    background-image: url('https://www.vcdoctor.com/wp-content/uploads/2025/01/Appointments-Scheduling-Banner-min.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    background-position: center;
+    position: relative;
+    object-fit: cover;
+}
+
+section.bannersection4:before {
+    position: absolute;
+    background: #000;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.compliantsection h2 {
+    font-weight: 600;
+    color: #302124;
+}
+
+.hipaa_complients .secondpara h4 {
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+.demotology_rule .secondpara p i {
+    margin-right: 10px;
+    color: #302124;
+    margin-top: 7px;
+    font-size: 20px;
+}
+
+.hipaa_complients .secondpara h4 {
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+.feature_explorecta._text a {
+    margin: inherit;
+}
+
+.section_dermotology p {
+    font-size: 14px;
+}
+
+section.compliantsection {
+    background: #f1e5d8;
+}
+
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.top_header {
+    background: transparent !important;
+    position: absolute;
+    width: 100%;
+    z-index: 9999999;
+}
+
+.top_header .navbar-brand {
+    max-width: 150px;
+}
+
+.nav-link {
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.s2_footer_menu .s2_widget_title {
+    color: #000;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-bottom: 35px;
+}
+
+.s2_footer_menu ul li {
+    margin-bottom: 18px;
+    display: inline-block !important;
+    padding: 10px 10px 0 0;
+    width: 50%;
+    float: left !important;
+}
+
+section.we_serve.custom.pt-0 {
+    padding-bottom: 3rem;
+}
+
+section.we_serve.custom.pt-0 .card-body {
+    padding: 0;
+    text-align: center;
+}
+
+section.we_serve.custom.pt-0 .card {
+    background: transparent;
+    border: 0;
+}
+
+section.we_serve.custom.pt-0 img.card-img-top {
+    width: 50%;
+    margin: auto;
+    border: 2px solid #302124;
+    border-radius: 100%;
+    padding: 5px;
+}
+
+section.we_serve.custom.pt-0 h2 {
+    margin-bottom: 3rem;
+}
+
+section.we_serve.custom.pt-0 p.card-text {
+    font-weight: 600;
+    font-style: italic;
+    font-family: "Isabella";
+}
+
+section.we_serve.bagde {
+    padding-bottom: 5rem;
+}
+
+:root {
+    /* tailwind colors */
+    --color-orange-50: oklch(0.98 0.016 73.684);
+    --color-orange-100: oklch(0.954 0.038 75.164);
+    --color-orange-200: oklch(0.901 0.076 70.697);
+    --color-orange-300: oklch(0.837 0.128 66.29);
+    --color-orange-400: oklch(0.75 0.183 55.934);
+    --color-orange-500: oklch(0.705 0.213 47.604);
+    --color-orange-600: oklch(0.646 0.222 41.116);
+    --color-orange-700: oklch(0.553 0.195 38.402);
+    --color-orange-800: oklch(0.47 0.157 37.304);
+    --color-orange-900: oklch(0.408 0.123 38.172);
+    --color-orange-950: oklch(0.266 0.079 36.259);
+    --color-yellow-50: oklch(0.987 0.026 102.212);
+    --color-yellow-100: oklch(0.973 0.071 103.193);
+    --color-yellow-200: oklch(0.945 0.129 101.54);
+    --color-yellow-300: oklch(0.905 0.182 98.111);
+    --color-yellow-400: oklch(0.852 0.199 91.936);
+    --color-yellow-500: oklch(0.795 0.184 86.047);
+    --color-yellow-600: oklch(0.681 0.162 75.834);
+    --color-yellow-700: oklch(0.554 0.135 66.442);
+    --color-yellow-800: oklch(0.476 0.114 61.907);
+    --color-yellow-900: oklch(0.421 0.095 57.708);
+    --color-yellow-950: oklch(0.286 0.066 53.813);
+    --color-gray-50: oklch(0.985 0 0);
+    --color-gray-100: oklch(0.967 0.001 286.375);
+    --color-gray-200: oklch(0.92 0.004 286.32);
+    --color-gray-300: oklch(0.871 0.006 286.286);
+    --color-gray-400: oklch(0.705 0.015 286.067);
+    --color-gray-500: oklch(0.552 0.016 285.938);
+    --color-gray-600: oklch(0.442 0.017 285.786);
+    --color-gray-700: oklch(0.37 0.013 285.805);
+    --color-gray-800: oklch(0.274 0.006 286.033);
+    --color-gray-900: oklch(0.21 0.006 285.885);
+    --color-gray-950: oklch(0.141 0.005 285.823);
+}
+
+.achievement {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 13rem;
+    background: #302124;
+    min-height: 175px;
+}
+
+.icon-outer-container {
+    position: relative;
+}
+
+.icon-inner-container {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    /* outer circle */
+    background-image: radial-gradient( circle at center, var(--color-yellow-400) 80%, var(--color-yellow-800) 100%);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.icon {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    padding: 0.6rem;
+    border-radius: inherit;
+    /* inner background */
+    background-color: var(--color-orange-400);
+    box-shadow: 0 0 10px hsl(from var(--color-orange-950) h s l / 60%) inset, 0 2px 2px hsl(from var(--color-orange-950) h s l / 30%) inset, 1px 1px 1px hsl(from var(--color-orange-100) h s l / 50%);
+}
+
+.icon svg {
+    /*   display: block; */
+    width: 100%;
+    height: 100%;
+    color: var(--color-yellow-300);
+    filter: drop-shadow(0 0 2px var(--color-yellow-700));
+}
+
+.spark-container {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+.spark {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* centering icons */
+    margin-top: calc(var(--spark-size) / 2 * -1);
+    margin-left: calc(var(--spark-size) / 2 * -1);
+    color: white;
+    transform-origin: center center;
+    animation: spark-animation 5s calc(var(--delay, 0ms) + 700ms) linear both infinite;
+    & svg {
+        width: var(--spark-size);
+        height: var(--spark-size);
+    }
+    &:nth-child(1) {
+        --spark-size: 12px;
+        --delay: 0ms;
+        left: 10%;
+        top: 10%;
+    }
+    &:nth-child(2) {
+        --spark-size: 14px;
+        --delay: 200ms;
+        left: 100%;
+        top: 35%;
+    }
+    &:nth-child(3) {
+        --spark-size: 10px;
+        --delay: 400ms;
+        left: 20%;
+        top: 95%;
+    }
+}
+
+.highlight {
+    --h-color: hsla(70, 20%, 96%, 0.7);
+    --h-angle: 120deg;
+    --h-gap: 4px;
+    --h-1-size: 4px;
+    --h-2-size: 12px;
+    --h-start: 40%;
+    /* Calculate positions */
+    --h-1-pos: calc(var(--h-start) + var(--h-1-size));
+    --h-2-pos: calc(var(--h-start) + var(--h-gap) + var(--h-1-size));
+    --h-end: calc( var(--h-start) + var(--h-gap) + var(--h-1-size) + var(--h-2-size));
+    content: "";
+    position: absolute;
+    inset: 0rem;
+    z-index: -1;
+    will-change: transform;
+    animation: slide 5s ease-in-out both infinite;
+    background-image: linear-gradient( var(--h-angle), transparent var(--h-start), var(--h-color) var(--h-start), var(--h-color) var(--h-1-pos), transparent var(--h-1-pos), transparent var(--h-2-pos), var(--h-color) var(--h-2-pos), var(--h-color) var(--h-end), transparent var(--h-end));
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #f1e5d8;
+    font-family: "Isabella";
+}
+
+.description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-weight: 400;
+    opacity: 0.75;
+    color: var(--color-yellow-50);
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-100%);
+    }
+    50%,
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes spark-animation {
+    0% {
+        transform: scale(0) rotate(-180deg);
+    }
+    8% {
+        transform: scale(1) rotate(0deg);
+    }
+    12% {
+        transform: scale(1) rotate(90deg);
+    }
+    16%,
+    100% {
+        transform: scale(0) rotate(180deg);
+    }
+}
+
+/*.loginbanner {
+    background-image: url("images/Fixed_Background.jpeg");
+    height:100vh;
+    
+}*/
+
+.col-lg-4.new_tophealth_login {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hipaa_complients h6 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+.section_telemedicine_platform {
+    background-image: url("images/Fixed_Background.jpeg");
+    height: 100vh;
+    position: relative;
+}
+
+.section_telemedicine_platform::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: "";
+    background: #0e0e0e7a;
+}
+
+.section_trusted_paragraph {
+    position: relative;
+    z-index: 9999;
+}
+
+.whitesection h2 {
+    font-weight: 600;
+    color: #302124;
+}
+
+.class_section_blocingone .domain-sec-5 .feature-content .heading {
+    color: #000000 !important;
+}
+
+.class_section_blocingone .domain-sec-5 .feature-content ul {
+    padding-left: 0;
+}
+
+.class_section_blocingone .domain-sec-5 .feature-content ul li {
+    color: #000000 !important;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.class_section_blocingone .domain-sec-5 .domain-sec-5-content .heading {
+    font-size: 2.5rem;
+    color: #000000;
+    font-family: "Isabella";
+}
+
+section.compliantsection.hipaa_complients.pt-4.pb-4.section_obstacles_sec.class_section_blocing {
+    background: #302124;
+    color: #fff;
+}
+
+.section_choosevcdoctor p {
+    margin-bottom: 30px
+}
+
+.section_choosevcdoctor ul li {
+    list-style: none;
+    padding-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.section_choosevcdoctor {
+    padding-bottom: 5rem !important;
+    background: #fffbf7;
+}
+
+.whitesection {
+    background: #fffbf7 !important;
+}
+
+section.feature_explorecta.pt-4.pb-4 {
+    background: #fffbf7 !important;
+}
+
+section.compliantsection.hipaa_complients.pt-4.pb-4.section_obstacles_sec.class_section_blocing h2 {
+    color: #fff;
+}
+
+section.compliantsection.hipaa_complients.pt-4.pb-4.section_obstacles_sec.class_section_blocing {
+    padding: 5rem 0 !important;
+}
+
+.feature_dermotology .heading_dermotology p {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.section_dermotology img {
+    background: transparent;
+    filter: invert(49%) sepia(14%) saturate(1291%) hue-rotate(298deg) brightness(97%) contrast(88%);
+}
+
+.secondpara ul li {
+    margin-bottom: 1rem;
+}
+
+.development_goals h4 {
+    color: #fff;
+    height: 70px;
+    min-height: 50px;
+    font-size: 1.5rem;
+}
+
+.development_goals p {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.development_goals img {
+    background: transparent;
+    filter: invert(55%) sepia(274%) saturate(661%) hue-rotate(1008deg) brightness(257%) contrast(88%);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 30%);
+}
+
+section.section_choosevcdoctor.pt-5.pb-0 {
+    background: #f1e5d8;
+}
+
+.lastline {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    font-family: 'Poppins';
+    text-align: center
+}
+
+.lastline strong {
+    font-family: "Isabella";
+}
+
+.section_about_us .secondimg img {
+    width: 300px;
+    border-radius: 100%;
+    outline: 3px solid #302124;
+    height: 300px;
+    object-fit: cover;
+}
+
+section.we_serve.bagde .icon-outer-container {
+    width: 150px;
+}
+
+section.we_serve.custom.pt-0 {
+    background: #fffbf7;
+    padding-top: 5rem !important;
+}
+
+a:hover {
+    color: #f1e5d8;
+}
+
+section.feature_dermotology.pt-4.pb-4.how {
+    background: #302124;
+}
+
+section.feature_dermotology.pt-4.pb-4.how .heading_dermotology h2 {
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.btn_btn {
+    font-weight: bold;
+    text-align: center !important;
+}
+
+.blogbtn {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.col-sm-12.widget-appointment.loginform .form-group label,
+.form-group legend {
+    color: #ffffff;
+    transition: 0.2s all;
+}
+
+.col-sm-12.widget-appointment.loginform p.no-bottom-margin {
+    font-size: 18px;
+}
+
+.saas_two_footer_section {
+    background-color: transparent;
+    padding: 0;
+}
+
+@media(max-width:540px) {
+    * {
+        font-size: 65%;
+    }
+    section.we_serve.bagde .row .col-md-4 {
+        flex: 100%;
+        max-width: 100%;
+    }
+    .achievement {
+        margin-top: 1rem;
+        min-height: auto;
+    }
+    .work_area .content_area {
+        display: block;
+    }
+    a.btn_btn.homebtnchange {
+        margin-left: 0px;
+    }
+    .work_area h3 {
+        max-width: 100%;
+        min-width: 100%;
+    }
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.top_header {
+        background: #302124 !important;
+        position: inherit;
+        width: 100%;
+        z-index: 9999999;
+    }
+    .login_account_logall {
+        border-radius: 50px;
+        padding: 5px 25px;
+        /* border: 1px solid #fff; */
+        color: #fff;
+        margin: auto;
+        max-width: fit-content;
+        background: #bd6e32;
+    }
+    .section_trusted_paragraph h1 {
+        font-size: 4rem;
+    }
+    .blogbtn {
+        display: block;
+    }
+    .btn_btn {
+        padding: 1rem 3rem;
+        margin-top: 2rem !important;
+    }
+}

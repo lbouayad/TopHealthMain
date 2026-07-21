@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
+    <title>Top Health AI</title>
+    <meta name="description" content="Top Health AI - Healthcare platform that moves at the speed of life" />
+    <meta name="keywords" content="healthcare, AI, medical, clinic, patient care" />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./Content/Themes/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Content/Themes/Coral/css/style.css">
+    <link rel="stylesheet" href="./Content/Themes/assets/css/style-2.css">
+    <link rel="stylesheet" href="./Content/Themes/assets/css/style.css">
+    <link rel="stylesheet" href="./Content/css/select2.min.css">
+    <link rel="stylesheet" href="./Content/css/chosen.css">
+    <link href="./Content/css/bootstrap-chosen.css" rel="stylesheet" />
+    <link href="./Content/topHealth/topHealths.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script>
+        function changeColor() {
+            var pcolor = ("#30211f" == null) ? "" : "#30211f";
+            var scolor = ("#c06f33" == null) ? "" : "#c06f33";
+            var tcolor = ("#fffbf7" == null) ? "" : "#fffbf7";
+            var Quinarycolor = ("#fffbf7" == null) ? "" : "#fffbf7";
+            var Quaternarycolor = ("#fffbf7" == null) ? "" : "#fffbf7";
+            var primaryFont = ("" == null) ? "" : "";
+            var SecondryFont = ("" == null) ? "" : "";
+            var TertiaryFont = ("" == null) ? "" : "";
+            var QuinaryFont = ("" == null) ? "" : "";
+            var QuaternarFont = ("" == null) ? "" : "";
+            document.documentElement.style.setProperty('--primary-color', pcolor);
+            document.documentElement.style.setProperty('--secondary-color', scolor);
+            document.documentElement.style.setProperty('--tertiary-color', tcolor);
+            document.documentElement.style.setProperty('--Quinary-color', Quinarycolor);
+            document.documentElement.style.setProperty('--Quaternary-color', Quaternarycolor);
+            document.documentElement.style.setProperty('--primary-Font', primaryFont);
+            document.documentElement.style.setProperty('--secondary-Font', SecondryFont);
+            document.documentElement.style.setProperty('--tertiary-Font', TertiaryFont);
+            document.documentElement.style.setProperty('--Quinary-Font', QuinaryFont);
+            document.documentElement.style.setProperty('--Quaternary-Font', QuaternarFont);
+        }
+        changeColor();
+    </script>
+
+</head>
+
+<body class="saas-classic">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark top_header">
+        <!-- Show this only on mobile to medium screens -->
+        <a class="navbar-brand d-lg-none" href="/"><img src="./Content/topHealth/images/Wordmark.png"
+                alt="logo" /> </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Use flexbox utility classes to change how the child elements are justified -->
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./for-partners.html">
+                        For Partners
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Show this only lg screens and up -->
+            <a class="navbar-brand d-none d-lg-block" href="/"><img src="./Content/topHealth/images/Wordmark.png"
+                    alt="logo" /> </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="./The-Team.html">
+                        The Team
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./case-studies.html">
+                        Case Studies
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./how-it-works.html">
+                        How It Works
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button onclick="myFunction()" class="button_qr" style="padding-top: 4px;">
+                        <img src="./Content/Themes/assets/img/qricon.svg" alt="qricon"
+                            style="filter:invert(1);width:25px;">
+                        <div class="qa_cmble qa_cmbleone" id="myDIV" style="display:none;">
+                            <p>Login through App</p>
+                            <img alt="qrcode" id="BindQRImage"
+                                style="width: 70%; border: 1px solid #ccc; border-radius: 5px;">
+                        </div>
+                    </button>
+
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+
+
+    <main class="">
+        <div class="p-0" bis_skin_checked="1">
+            <video autoplay loop muted width="100%" height="100%" class="d-block w-100" preload="auto">
+                <source src="./Content/topHealth/images/videoplayback.mp4" type="video/mp4">
+                <p>Your browser does not support the video tag.</p>
+            </video>
+        </div>
+        <section class="welcome custom">
+            <div class="container-fluid" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-md-6 col-12" bis_skin_checked="1">
+                        <h2>
+                            Healthcare That Moves at the Speed of Life
+                        </h2>
+                    </div>
+                    <div class="col-md-6 col-12" bis_skin_checked="1">
+                        <p>
+                            At <strong>Top Health AI</strong>, we help physicians take back their time; and patients
+                            feel seen, heard, and cared for, without delays, confusion and chaos.
+                            <br>
+                            <br> Our platform creates space for better care by simplifying the steps that get in the
+                            way: the back-and-forth, the endless forms, the guesswork. What used to feel rushed or
+                            reactive now flows
+                            <strong> clarity, </strong> purpose,
+                            <strong> and confidence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="we_serve custom">
+            <div class="container-fluid" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-12" bis_skin_checked="1">
+                        <h2>Who We Serve</h2>
+                    </div>
+                    <div class="col-md-4 col-12" bis_skin_checked="1">
+                        <p>
+                            <strong>Clinics </strong> where time is scarce but quality can’t be compromised
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-12" bis_skin_checked="1">
+                        <p>
+                            <strong>Health systems </strong> that want to feel more like care teams and less like call
+                            centers
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-12" bis_skin_checked="1">
+                        <p>
+                            <strong>Medical leaders </strong> looking to bring clarity, order, and compassion into
+                            healthcare
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="we_serve bagde">
+            <div class="container-fluid" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-md-4" bis_skin_checked="1">
+                        <div class="achievement" bis_skin_checked="1">
+                            <div class="icon-outer-container" bis_skin_checked="1">
+                                <img src="./Content/topHealth/images/Final_Number1.png" alt="">
+
+                            </div>
+                            <div class="content" bis_skin_checked="1">
+                                <span class="title">
+                                    Platform for Smarter Clinical Flow—No Chaos, Just Clarity.
+                                </span>
+                                <span class="description">
+                                    When every minute matters, guide patients to the right care with intelligent triage
+                                    and seamless coordination.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" bis_skin_checked="1">
+                        <div class="achievement" bis_skin_checked="1">
+                            <div class="icon-outer-container" bis_skin_checked="1">
+
+                                <img src="./Content/topHealth/images/Final_Number1.png" alt="">
+                            </div>
+                            <div class="content" bis_skin_checked="1">
+                                <span class="title">
+                                    Trusted System for Patient-Centered Automation. </span>
+                                <span class="description">
+                                    Reduce delays, missed steps, and burnout—our platform brings calm, clarity, and
+                                    control to busy clinical teams.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" bis_skin_checked="1">
+                        <div class="achievement" bis_skin_checked="1">
+                            <div class="icon-outer-container" bis_skin_checked="1">
+
+                                <img src="./Content/topHealth/images/Final_Number1.png" alt="">
+                            </div>
+                            <div class="content" bis_skin_checked="1">
+                                <span class="title"> Co-Pilot for Clinics—Any Role, Any Workflow. </span>
+                                <span class="description">
+                                    From intake to follow-up, our AI works behind the scenes to keep patients and
+                                    providers aligned—no extra staff required.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="we_serve custom pt-0">
+            <div class="container-fluid" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-12" bis_skin_checked="1">
+                        <h2>Our Areas of Expertise</h2>
+                    </div>
+                    <div class="col-md-4 col-12" bis_skin_checked="1">
+                        <div class="card" bis_skin_checked="1">
+                            <img class="card-img-top"
+                                src="./Content/topHealth/images/Cancer_Diagnosis_Circular.png"
+                                alt="Card image cap">
+                            <div class="card-body" bis_skin_checked="1">
+                                <p class="card-text"> Smart Triage & Patient Flow</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12" bis_skin_checked="1">
+                        <div class="card" bis_skin_checked="1">
+                            <img class="card-img-top" src="./Content/topHealth/images/Chronic_Pain_Circular.png"
+                                alt="Card image cap">
+                            <div class="card-body" bis_skin_checked="1">
+                                <p class="card-text"> Between-Visit Engagement </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12" bis_skin_checked="1">
+                        <div class="card" bis_skin_checked="1">
+                            <img class="card-img-top"
+                                src="./Content/topHealth/images/Invasive_Surgery_Circular.png"
+                                alt="Card image cap">
+                            <div class="card-body" bis_skin_checked="1">
+                                <p class="card-text"> Clinical Clarity & Documentation </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="why_choose custom">
+            <div class="container-fluid" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-12" bis_skin_checked="1">
+                        <h2>Why Choose Top Health AI ?</h2>
+                        <div class="faq-section" bis_skin_checked="1">
+                            <div class="row" bis_skin_checked="1">
+                                <div class="col-md-12" bis_skin_checked="1">
+                                    <div id="accordion" bis_skin_checked="1">
+                                        <div class="card" bis_skin_checked="1">
+                                            <div class="card-header" id="heading-1" bis_skin_checked="1">
+                                                <h5 class="mb-0">
+                                                    <a role="button" data-toggle="collapse" href="#collapse-1"
+                                                        aria-expanded="false" aria-controls="collapse-1">
+                                                        Instant Clarity, Less Chaos — No Overwhelm, No Delays
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-1" class="collapse show" data-parent="#accordion"
+                                                aria-labelledby="heading-1" bis_skin_checked="1">
+                                                <div class="card-body" bis_skin_checked="1">
+                                                    Top Health AI brings order to the clinical day by guiding patients
+                                                    to the right care, reducing confusion, and minimizing wasted
+                                                    time—for both providers and staff.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card" bis_skin_checked="1">
+                                            <div class="card-header" id="heading-2" bis_skin_checked="1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-2" aria-expanded="false"
+                                                        aria-controls="collapse-2">
+                                                        AI-Powered Coordination That Keeps Everyone Aligned
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-2" class="collapse" data-parent="#accordion"
+                                                aria-labelledby="heading-2" bis_skin_checked="1">
+                                                <div class="card-body" bis_skin_checked="1">
+                                                    From the first symptom to the final follow-up, our system keeps
+                                                    patients informed and care teams one step ahead—without the chasing,
+                                                    guessing, or gaps.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card" bis_skin_checked="1">
+                                            <div class="card-header" id="heading-3" bis_skin_checked="1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-3" aria-expanded="false"
+                                                        aria-controls="collapse-3">
+                                                        Streamlined Workflows Without Enterprise Bloat
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-3" class="collapse" data-parent="#accordion"
+                                                aria-labelledby="heading-3" bis_skin_checked="1">
+                                                <div class="card-body" bis_skin_checked="1">
+                                                    Modernize your clinic without adding complexity. We simplify
+                                                    documentation, triage, and follow-up—so providers can spend more
+                                                    time caring and less time clicking.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card" bis_skin_checked="1">
+                                            <div class="card-header" id="heading-6" bis_skin_checked="1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-6" aria-expanded="false"
+                                                        aria-controls="collapse-6">
+                                                        Designed for Real Clinics, Not Just Software Demos
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-6" class="collapse" data-parent="#accordion"
+                                                aria-labelledby="heading-6" bis_skin_checked="1">
+                                                <div class="card-body" bis_skin_checked="1">
+                                                    We understand the pressure on today’s care teams. That’s why every
+                                                    part of Top Health AI is built to make the day feel lighter,
+                                                    smoother, and more human.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card" bis_skin_checked="1">
+                                            <div class="card-header" id="heading-5" bis_skin_checked="1">
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                                        href="#collapse-5" aria-expanded="false"
+                                                        aria-controls="collapse-5">
+                                                        Secure and HIPAA-Compliant
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapse-5" class="collapse" data-parent="#accordion"
+                                                aria-labelledby="heading-5" bis_skin_checked="1">
+                                                <div class="card-body" bis_skin_checked="1">
+                                                    We prioritize privacy at every step. Our system is fully
+                                                    HIPAA-compliant and designed to integrate with the tools you already
+                                                    use.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="work_area custom">
+            <div class="container-fluid" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-12" bis_skin_checked="1">
+                        <h2>How It Works</h2>
+                        <div class="content_area" bis_skin_checked="1">
+                            <span>1</span>
+                            <h3>Fast, Friendly Onboarding</h3>
+                            <p>
+                                We help you get started with minimal lift—no IT overhaul required.
+                            </p>
+                        </div>
+                        <div class="content_area" bis_skin_checked="1">
+                            <span>2</span>
+                            <h3>Structured Intake, Real-Time Guidance</h3>
+                            <p>
+                                Patients submit their symptoms, and our AI organizes them into clear, clinically useful
+                                summaries.
+                            </p>
+                        </div>
+                        <div class="content_area" bis_skin_checked="1">
+                            <span>3</span>
+                            <h3>Right-Time, Right-Person Routing</h3>
+                            <p>
+                                Each patient is matched to the appropriate provider, based on urgency and care role.
+                            </p>
+                        </div>
+                        <div class="content_area" bis_skin_checked="1">
+                            <span>4</span>
+                            <h3>Follow-Up Made Easy</h3>
+                            <p>
+                                Between-visit questions and nudges are handled automatically—keeping patients on track
+                                without extra calls.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="trust_area custom">
+            <div class="container-fluid" bis_skin_checked="1">
+                <div class="row" bis_skin_checked="1">
+                    <div class="col-12" bis_skin_checked="1">
+                        <h2>
+                            The Top Health AI Difference<br>
+                            <span>Clarity. Control. Capacity.</span>
+                        </h2>
+                        <p>
+                            Top Health AI helps clinics run smarter—not just faster. Reduce friction, improve flow, and
+                            restore confidence at every step of the care journey.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- Start of footer section
+============================================= -->
+
+    <footer id="saas_two_footer" class="saas_two_footer_section relative-position">
+        <div class="footer_content pera-content footerchange">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="s2_footer_widget clearfix ul-li-block  saas2-headline">
+                            <div class="s2_footer_about" style="font-size:18px; display:inline-grid; line-height:35px">
+                                <div class="s2-footer_logo">
+                                    <h3 class="s2_widget_title"><span>Download App</span><i></i></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="s2_footer_widget clearfix ul-li-block saas2-headline">
+                            <div class="s2_footer_menu">
+                                <h3 class="s2_widget_title">
+                                    <span>Contact</span>
+                                    <i></i>
+                                </h3>
+                                <div class="s2_footer_social mt-3">
+                                    <a target="_blank" href="http://facebook.com/tophealthai" target="_blank">
+                                        <i class="fb-bg fab fa-facebook-f "></i>
+                                    </a>
+                                    <a target="_blank" href="http://linkedin.com/company/tophealthai" target="_blank">
+                                        <i class="bh-bg fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a target="_blank" href="http://instagram.com/tophealthai/" target="_blank">
+                                        <i class="tw-bg fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="s2_footer_widget clearfix ul-li-block saas2-headline remote_patients">
+                            <div class="s2_footer_menu">
+                                <h3 class="s2_widget_title">
+                                    <span>Links</span>
+                                    <i></i>
+                                </h3>
+                                <div class="footer_link">
+                                    <p>
+                                        <a href="https://tophealth.ai/privacy" target="_blank">
+                                            <img style="margin-right:5px; width: 5%;"
+                                                src="./Content/images/privacy-policy.png" /> Privacy Policy
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="https://tophealth.ai/terms-and-conditions" target="_blank">
+                                            <img style="margin-right:5px; width: 5%;"
+                                                src="./Content/images/terms-and-conditions.png" /> Terms and
+                                            Conditions
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="s2_footer_widget clearfix ul-li-block saas2-headline">
+                            <div class="s2_footer_social">
+                                <h3 class="s2_widget_title"><span>Address</span><i></i></h3>
+                                <div class="footer_about">
+                                    <p><i class="fas fa-map-marker"></i> 371 Channelside Walkway, Tampa, FL, 33602</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="s2-copyright text-center">
+            Copyright &copy; <span id="date"></span>. All Rights Reserved <a target="_blank" href="">Top Health AI
+                LLC</a>
+        </div>
+    </footer>
+
+    <script src="./Content/Themes/Coral/js/vendors/jquery/jquery-1.11.3.min.js"></script>
+    <script src="./Content/Themes/assets/js/popper.min.js"></script>
+    <script src="./Content/js/bootstrap.min.js"></script>
+    <script src="./Content/Themes/assets/js/script.js"></script>
+    <script src="./Content/js/select2.min.js"></script>
+    <script src="./Content/js/chosen.jquery.js"></script>
+    <script src="./Content/js/jquery.validate.min.js"></script>
+    <script src="./Content/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="./Content/js/jquery.validate.custom.js"></script>
+    <script src="./Content/js/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="./Content/js/jquery.signalR-2.2.0.js"></script>
+    <script src="./Content/js/scripts.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // QR Code toggle function
+        function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        // Set current year in footer
+        $(function () {
+            var d = new Date();
+            $('#date').text(d.getFullYear());
+        });
+    </script>
+</body>
+
+</html>
