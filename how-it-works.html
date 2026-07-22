@@ -604,7 +604,11 @@
                 var data = await res.json().catch(function () { return {}; });
 
                 if (res.ok && data.success) {
-                    status.textContent = "Thanks! We're configuring your personalized AI receptionist now — check your email in the next few minutes for the demo line and your personal access code.";
+                    if (data.isNewSession === false) {
+                        status.textContent = "Looks like you already requested a demo — check your email for the access code we sent earlier, or contact us if you can't find it.";
+                    } else {
+                        status.textContent = "Thanks! We're configuring your personalized AI receptionist now — check your email in the next few minutes for the demo line and your personal access code.";
+                    }
                 } else {
                     status.textContent = "Something went wrong submitting your request. Please try again or contact us directly.";
                 }
