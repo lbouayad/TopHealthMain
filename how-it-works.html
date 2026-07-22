@@ -272,8 +272,8 @@
                             <h2>Request Your Personalized AI Receptionist</h2>
                             <p>
                                 Complete the short form below. <strong style="color:var(--secondary-color);">We'll immediately configure your personalized AI
-                                receptionist</strong> and send you a dedicated phone number so you can start testing it
-                                right away.
+                                receptionist</strong> and send you the demo line and your personal access code so
+                                you can start testing it right away.
                             </p>
                             <p><strong>No commitment. No credit card. Just experience it for yourself.</strong></p>
                         </div>
@@ -406,8 +406,8 @@
                                         aria-labelledby="faq-heading-4">
                                         <div class="card-body">
                                             <strong>Immediately.</strong> Once you submit the form, we'll configure your
-                                            personalized AI receptionist and send you a dedicated phone number
-                                            so you can begin testing it.
+                                            personalized AI receptionist and send you the demo line and your
+                                            personal access code so you can begin testing it.
                                         </div>
                                     </div>
                                 </div>
@@ -601,10 +601,10 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
-                var data = await res.json();
+                var data = await res.json().catch(function () { return {}; });
 
-                if (data.success) {
-                    status.textContent = "Thanks! We're configuring your personalized AI receptionist now — we'll text and email you your dedicated phone number shortly.";
+                if (res.ok && data.success) {
+                    status.textContent = "Thanks! We're configuring your personalized AI receptionist now — check your email in the next few minutes for the demo line and your personal access code.";
                 } else {
                     status.textContent = "Something went wrong submitting your request. Please try again or contact us directly.";
                 }
