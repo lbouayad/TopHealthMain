@@ -47,6 +47,120 @@
         }
         changeColor();
     </script>
+    <style>
+        /* Ensure page text remains visible */
+        .whitesection,
+        .compliantsection {
+            color: var(--primary-color);
+        }
+
+        /* Fix disappearing card content on mobile Safari */
+        .experience-card {
+            position: relative;
+            background: #ffffff;
+            color: var(--primary-color) !important;
+            border: 1px solid #f1e5d8;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 6px 20px rgba(48, 33, 31, 0.06);
+
+            /* Do not use translateZ(0): it can hide text on iOS */
+            transform: none !important;
+            -webkit-transform: none !important;
+        }
+
+        .experience-card p,
+        .experience-card div,
+        .experience-card span {
+            color: var(--primary-color) !important;
+            -webkit-text-fill-color: var(--primary-color) !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .experience-card .experience-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 16px;
+            line-height: 1.45;
+            font-weight: 400;
+            min-width: 0;
+        }
+
+        .experience-card .experience-item i {
+            color: var(--secondary-color) !important;
+            flex: 0 0 auto;
+            margin-right: 8px;
+            margin-top: 3px;
+            -webkit-text-fill-color: var(--secondary-color) !important;
+        }
+
+        /* Who Qualifies */
+        .qualification-section {
+            color: var(--primary-color) !important;
+        }
+
+        .qualification-section p {
+            color: var(--primary-color) !important;
+            -webkit-text-fill-color: var(--primary-color) !important;
+        }
+
+        .ehr-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--tertiary-color);
+            color: var(--primary-color) !important;
+            -webkit-text-fill-color: var(--primary-color) !important;
+            border: 1px solid #e6d7c7;
+            border-radius: 50px;
+            padding: 9px 22px;
+            min-width: 130px;
+            font-size: 15px !important;
+            line-height: 1.2 !important;
+            font-weight: 600;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        @media (max-width: 767.98px) {
+            .experience-card {
+                padding: 24px 20px;
+                margin-top: 22px;
+            }
+
+            .experience-card .experience-grid {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 14px !important;
+            }
+
+            .experience-card .experience-item {
+                font-size: 16px !important;
+            }
+
+            .qualification-section {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .qualification-section .qualification-heading {
+                font-size: 22px !important;
+                line-height: 1.35 !important;
+            }
+
+            .qualification-section .qualification-note {
+                font-size: 15px !important;
+                line-height: 1.55 !important;
+                opacity: 1 !important;
+            }
+
+            .ehr-badge {
+                font-size: 15px !important;
+                min-width: 140px;
+            }
+        }
+    </style>
 </head>
 <body class="saas-classic">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark top_header">
@@ -149,13 +263,13 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div style="background:#fff; border:1px solid #f1e5d8; border-radius:16px; padding:28px; box-shadow:0 6px 20px rgba(48,33,31,0.06); -webkit-transform:translateZ(0); transform:translateZ(0);">
+                        <div class="experience-card">
                             <p style="font-weight:700; margin-bottom:14px;">Call your own AI receptionist exactly the way your patients would:</p>
-                            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:14px 16px;">
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Ask questions</div>
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Schedule an appointment</div>
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Try to confuse it</div>
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Interrupt it</div>
+                            <div class="experience-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:14px 16px;">
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Ask questions</span></div>
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Schedule an appointment</span></div>
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Try to confuse it</span></div>
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Interrupt it</span></div>
                             </div>
                         </div>
                     </div>
@@ -235,15 +349,15 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div style="background:#fff; border:1px solid #f1e5d8; border-radius:16px; padding:28px; box-shadow:0 6px 20px rgba(48,33,31,0.06); -webkit-transform:translateZ(0); transform:translateZ(0);">
+                        <div class="experience-card">
                             <p style="font-weight:700; margin-bottom:14px;">During your test call you can:</p>
-                            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:14px 16px;">
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Schedule an appointment</div>
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Ask office questions</div>
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Test after-hours behavior</div>
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Try confusing questions</div>
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Interrupt the conversation</div>
-                                <div><i class="fas fa-check-circle" style="color:var(--secondary-color); margin-right:8px;"></i>Evaluate if it sounds natural</div>
+                            <div class="experience-grid" style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:14px 16px;">
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Schedule an appointment</span></div>
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Ask office questions</span></div>
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Test after-hours behavior</span></div>
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Try confusing questions</span></div>
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Interrupt the conversation</span></div>
+                                <div class="experience-item"><i class="fas fa-check-circle"></i><span>Evaluate if it sounds natural</span></div>
                             </div>
                         </div>
                     </div>
@@ -252,16 +366,60 @@
         </section>
 
         <!-- Who Qualifies -->
-        <section class="compliantsection hipaa_complients demotology_rule pt-3 pb-3">
+        <section class="compliantsection hipaa_complients demotology_rule pt-4 pb-4 qualification-section">
             <div class="container text-center">
-                <p style="text-transform:uppercase; letter-spacing:1px; font-size:13px; font-weight:700; opacity:0.6; margin-bottom:14px;">Who Qualifies</p>
-                <p style="font-weight:700; margin-bottom:14px;">Currently available for a limited number of practices using:</p>
-                <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px;">
-                    <span style="background:var(--tertiary-color); border:1px solid #f1e5d8; border-radius:50px; padding:8px 22px; font-weight:600;">athenahealth</span>
-                    <span style="background:var(--tertiary-color); border:1px solid #f1e5d8; border-radius:50px; padding:8px 22px; font-weight:600;">eClinicalWorks</span>
+
+                <p style="
+                    text-transform:uppercase;
+                    letter-spacing:1px;
+                    font-size:13px;
+                    font-weight:700;
+                    color:var(--primary-color);
+                    opacity:0.65;
+                    margin-bottom:18px;">
+                    Who Qualifies
+                </p>
+
+                <p class="qualification-heading"
+                    style="
+                        color:var(--primary-color);
+                        font-size:24px;
+                        line-height:1.4;
+                        font-weight:700;
+                        margin-bottom:22px;">
+                    Currently available for a limited number of practices using:
+                </p>
+
+                <div style="
+                    display:flex;
+                    flex-wrap:wrap;
+                    justify-content:center;
+                    gap:14px;">
+
+                    <span class="ehr-badge">athenahealth</span>
+                    <span class="ehr-badge">eClinicalWorks</span>
                 </div>
-                <p style="font-size:13px; opacity:0.7; margin-top:14px;">(Additional EHRs coming soon.)</p>
-                <p style="font-size:14px; opacity:0.8; margin-top:10px;">Each AI receptionist is configured specifically for your practice, so we only onboard a limited number of new practices each week.</p>
+
+                <p style="
+                    color:var(--primary-color);
+                    font-size:15px;
+                    opacity:0.75;
+                    margin-top:20px;
+                    margin-bottom:0;">
+                    Additional EHRs coming soon.
+                </p>
+
+                <p class="qualification-note"
+                    style="
+                        color:var(--primary-color);
+                        font-size:16px;
+                        line-height:1.6;
+                        opacity:0.85;
+                        max-width:720px;
+                        margin:20px auto 0;">
+                    Each AI receptionist is configured specifically for your practice, so we only onboard a limited number of new practices each week.
+                </p>
+
             </div>
         </section>
 
