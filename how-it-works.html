@@ -840,7 +840,7 @@
                 websiteUrl: document.getElementById('req-website').value,
                 ehrSystem: document.getElementById('req-ehr').value
             };
-            status.textContent = 'Submitting your request…';
+            status.textContent = 'Submitting your request… this can take a few minutes while we set up your personalized demo.';
 
             try {
                 var res = await fetch('https://automation.tophealth.ai/webhook/request-demo', {
