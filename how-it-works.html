@@ -161,33 +161,87 @@
             }
         }
 
-        /* Request form: labels, placeholders, and select text disappearing on mobile Safari */
-        .demo-form label {
-            display: block;
+        /* Make all request-form text visible */
+        #request-demo-form,
+        #request-demo-form .form-group {
+            color: var(--primary-color) !important;
+        }
+
+        #request-demo-form label {
+            display: block !important;
             color: var(--primary-color) !important;
             -webkit-text-fill-color: var(--primary-color) !important;
-            font-weight: 600;
-            margin-bottom: 6px;
             opacity: 1 !important;
             visibility: visible !important;
+            font-size: 15px !important;
+            line-height: 1.4 !important;
+            font-weight: 700 !important;
+            margin-bottom: 7px !important;
         }
 
-        .demo-form input,
-        .demo-form select {
+        #request-demo-form input,
+        #request-demo-form select,
+        #request-demo-form textarea {
+            display: block !important;
+            background-color: #ffffff !important;
             color: var(--primary-color) !important;
             -webkit-text-fill-color: var(--primary-color) !important;
-            background-color: #fff !important;
+            caret-color: var(--primary-color) !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            font-size: 16px !important;
+            line-height: 1.4 !important;
+            font-weight: 400 !important;
+            min-height: 52px !important;
+        }
+
+        #request-demo-form input::placeholder,
+        #request-demo-form textarea::placeholder {
+            color: #786d69 !important;
+            -webkit-text-fill-color: #786d69 !important;
             opacity: 1 !important;
         }
 
-        .demo-form input::placeholder {
+        #request-demo-form select,
+        #request-demo-form select option {
             color: var(--primary-color) !important;
             -webkit-text-fill-color: var(--primary-color) !important;
-            opacity: 0.5 !important;
+            background-color: #ffffff !important;
         }
 
-        .demo-form select option {
-            color: var(--primary-color) !important;
+        /* Prevent iPhone Safari from dimming autofilled fields */
+        #request-demo-form input:-webkit-autofill,
+        #request-demo-form input:-webkit-autofill:hover,
+        #request-demo-form input:-webkit-autofill:focus,
+        #request-demo-form select:-webkit-autofill {
+            -webkit-text-fill-color: var(--primary-color) !important;
+            box-shadow: 0 0 0 1000px #ffffff inset !important;
+            -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+            transition: background-color 9999s ease-out 0s;
+        }
+
+        @media (max-width: 767.98px) {
+            #request-demo-form label {
+                font-size: 15px !important;
+                margin-bottom: 8px !important;
+            }
+
+            #request-demo-form input,
+            #request-demo-form select {
+                width: 100% !important;
+                height: 54px !important;
+                min-height: 54px !important;
+                padding: 12px 14px !important;
+                margin-bottom: 18px !important;
+                font-size: 16px !important;
+            }
+
+            #request-demo-form button[type="submit"] {
+                width: 100% !important;
+                font-size: 18px !important;
+                line-height: 1.35 !important;
+                padding: 16px 20px !important;
+            }
         }
     </style>
 </head>
@@ -469,20 +523,23 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <form id="request-demo-form" class="demo-form" style="text-align:left;">
+                        <form id="request-demo-form" style="text-align:left;">
                             <div class="form-group">
                                 <label for="req-name">Full Name</label>
                                 <input type="text" id="req-name" class="form-control" required
+                                    placeholder="Dr. Jane Smith"
                                     style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
                             </div>
                             <div class="form-group">
                                 <label for="req-email">Email</label>
                                 <input type="email" id="req-email" class="form-control" required
+                                    placeholder="jane@yourpractice.com"
                                     style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
                             </div>
                             <div class="form-group">
                                 <label for="req-phone">Phone Number</label>
                                 <input type="tel" id="req-phone" class="form-control" required
+                                    placeholder="(555) 123-4567"
                                     style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
                             </div>
                             <div class="form-group">
@@ -495,7 +552,7 @@
                                 <label for="req-ehr">EHR System</label>
                                 <select id="req-ehr" class="form-control" required
                                     style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:20px; width:100%;">
-                                    <option value="">Select your EHR...</option>
+                                    <option value="" selected disabled>Select your EHR...</option>
                                     <option value="athenahealth">athenahealth</option>
                                     <option value="eClinicalWorks">eClinicalWorks</option>
                                     <option value="ModMed">ModMed</option>
