@@ -7,7 +7,7 @@
     <meta name="description"
         content="Call your own personalized AI receptionist and experience exactly what your patients hear — configured for your practice, your providers, your hours." />
     <meta name="keywords"
-        content="Top Health AI demo, AI receptionist demo, personalized demo, athenahealth, eClinicalWorks" />
+        content="Top Health AI demo, AI receptionist demo, personalized demo, athenahealth, eClinicalWorks, ModMed" />
     <!-- CSS Files -->
     <link rel="stylesheet" href="./Content/Themes/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Content/Themes/Coral/css/style.css">
@@ -159,6 +159,35 @@
                 font-size: 15px !important;
                 min-width: 140px;
             }
+        }
+
+        /* Request form: labels, placeholders, and select text disappearing on mobile Safari */
+        .demo-form label {
+            display: block;
+            color: var(--primary-color) !important;
+            -webkit-text-fill-color: var(--primary-color) !important;
+            font-weight: 600;
+            margin-bottom: 6px;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .demo-form input,
+        .demo-form select {
+            color: var(--primary-color) !important;
+            -webkit-text-fill-color: var(--primary-color) !important;
+            background-color: #fff !important;
+            opacity: 1 !important;
+        }
+
+        .demo-form input::placeholder {
+            color: var(--primary-color) !important;
+            -webkit-text-fill-color: var(--primary-color) !important;
+            opacity: 0.5 !important;
+        }
+
+        .demo-form select option {
+            color: var(--primary-color) !important;
         }
     </style>
 </head>
@@ -398,6 +427,7 @@
 
                     <span class="ehr-badge">athenahealth</span>
                     <span class="ehr-badge">eClinicalWorks</span>
+                    <span class="ehr-badge">ModMed</span>
                 </div>
 
                 <p style="
@@ -439,7 +469,7 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <form id="request-demo-form" style="text-align:left;">
+                        <form id="request-demo-form" class="demo-form" style="text-align:left;">
                             <div class="form-group">
                                 <label for="req-name">Full Name</label>
                                 <input type="text" id="req-name" class="form-control" required
@@ -468,6 +498,7 @@
                                     <option value="">Select your EHR...</option>
                                     <option value="athenahealth">athenahealth</option>
                                     <option value="eClinicalWorks">eClinicalWorks</option>
+                                    <option value="ModMed">ModMed</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
