@@ -31,10 +31,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
 
-    <!-- STEP 1: TITLE TAG — changed from "How It Works - Top Health AI" -->
     <title>AI Receptionist for Medical Practices | Top Health AI</title>
 
-    <!-- STEP 2: META DESCRIPTION — changed to describe what Jenna is + EHR integrations + free trial -->
     <meta name="description"
         content="Jenna is an AI receptionist for independent medical practices, integrated with athenahealth, eClinicalWorks, and ModMed. Test it free on your own practice, no commitment." />
     <meta name="keywords"
@@ -95,8 +93,6 @@
             border-radius: 16px;
             padding: 28px;
             box-shadow: 0 6px 20px rgba(48, 33, 31, 0.06);
-
-            /* Do not use translateZ(0): it can hide text on iOS */
             transform: none !important;
             -webkit-transform: none !important;
         }
@@ -155,6 +151,36 @@
             visibility: visible !important;
         }
 
+        /* NEW: eligibility badges for NPI / GMC */
+        .eligibility-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            color: var(--primary-color) !important;
+            -webkit-text-fill-color: var(--primary-color) !important;
+            border: 2px solid var(--secondary-color);
+            border-radius: 50px;
+            padding: 9px 22px;
+            min-width: 130px;
+            font-size: 15px !important;
+            line-height: 1.2 !important;
+            font-weight: 700;
+        }
+
+        /* NEW: default-practice link styling */
+        .use-sample-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--secondary-color) !important;
+            text-decoration: underline;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
         @media (max-width: 767.98px) {
             .experience-card {
                 padding: 24px 20px;
@@ -187,7 +213,8 @@
                 opacity: 1 !important;
             }
 
-            .ehr-badge {
+            .ehr-badge,
+            .eligibility-badge {
                 font-size: 15px !important;
                 min-width: 140px;
             }
@@ -241,7 +268,6 @@
             background-color: #ffffff !important;
         }
 
-        /* Prevent iPhone Safari from dimming autofilled fields */
         #request-demo-form input:-webkit-autofill,
         #request-demo-form input:-webkit-autofill:hover,
         #request-demo-form input:-webkit-autofill:focus,
@@ -250,6 +276,12 @@
             box-shadow: 0 0 0 1000px #ffffff inset !important;
             -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
             transition: background-color 9999s ease-out 0s;
+        }
+
+        /* NEW: disabled/prefilled field style, so it's visually clear it's auto-filled */
+        #request-demo-form input:disabled {
+            background-color: #f1e5d8 !important;
+            opacity: 0.9 !important;
         }
 
         @media (max-width: 767.98px) {
@@ -279,14 +311,12 @@
 </head>
 <body class="saas-classic">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark top_header">
-        <!-- Show this only on mobile to medium screens -->
         <a class="navbar-brand d-lg-none" href="/"><img src="./Content/topHealth/images/Wordmark.png"
                 alt="Top Health AI logo" /> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Use flexbox utility classes to change how the child elements are justified -->
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -295,7 +325,6 @@
                     </a>
                 </li>
             </ul>
-            <!-- Show this only lg screens and up -->
             <a class="navbar-brand d-none d-lg-block" href="/"><img src="./Content/topHealth/images/Wordmark.png"
                     alt="Top Health AI logo" /> </a>
             <ul class="navbar-nav">
@@ -335,7 +364,6 @@
             <div class="container">
                 <div class="section_trusted_paragraph">
 
-                    <!-- STEP 3: H1 — added the target keyword phrase as a lead-in, kept your original line as the emotional hook -->
                     <p style="font-size:15px; font-weight:700; text-transform:uppercase; letter-spacing:1px; opacity:0.75; margin-bottom:6px;">AI Receptionist for Medical Practices</p>
                     <h1>How Much Money Are You Leaving on the Table?</h1>
 
@@ -431,7 +459,6 @@
                 <div class="row align-items-center" style="max-width:1100px; margin:0 auto;">
                     <div class="col-md-6">
                         <div class="secondimg">
-                            <!-- STEP 5: IMAGE ALT TEXT — expanded to describe the chart's meaning for search engines -->
                             <img src="./Content/topHealth/images/CaseStudies-RealResults.png"
                                 alt="Chart showing call abandonment rate at a medical practice dropping from 29.7% to 8.1% after implementing the Jenna AI receptionist, February 2026 versus June 2026"
                                 style="max-width:100%; border-radius:12px;">
@@ -489,6 +516,7 @@
         <section class="compliantsection hipaa_complients demotology_rule pt-4 pb-4 qualification-section">
             <div class="container text-center">
 
+                <!-- NEW: sandbox eligibility block, sits above the existing production-EHR block -->
                 <p style="
                     text-transform:uppercase;
                     letter-spacing:1px;
@@ -497,7 +525,7 @@
                     color:var(--primary-color);
                     opacity:0.65;
                     margin-bottom:18px;">
-                    Who Qualifies
+                    Who Can Test the Demo
                 </p>
 
                 <p class="qualification-heading"
@@ -507,7 +535,49 @@
                         line-height:1.4;
                         font-weight:700;
                         margin-bottom:22px;">
-                    Currently available for a limited number of practices using:
+                    Any licensed provider with a valid NPI (US) or GMC registration (UK) can test Jenna's sandbox demo, free.
+                </p>
+
+                <div style="
+                    display:flex;
+                    flex-wrap:wrap;
+                    justify-content:center;
+                    gap:14px;
+                    margin-bottom:28px;">
+                    <span class="eligibility-badge">Valid US NPI</span>
+                    <span class="eligibility-badge">Valid UK GMC Registration</span>
+                </div>
+
+                <p style="
+                    color:var(--primary-color);
+                    font-size:15px;
+                    opacity:0.8;
+                    max-width:720px;
+                    margin:0 auto 36px;">
+                    This demo runs in our test environment and does not affect any live practice or patient data. Don't have a practice website? Use our sample practice to test Jenna instead.
+                </p>
+
+                <hr style="max-width:400px; margin:0 auto 36px; opacity:0.2;">
+
+                <p style="
+                    text-transform:uppercase;
+                    letter-spacing:1px;
+                    font-size:13px;
+                    font-weight:700;
+                    color:var(--primary-color);
+                    opacity:0.65;
+                    margin-bottom:18px;">
+                    Who Jenna Is Built For Today
+                </p>
+
+                <p class="qualification-heading"
+                    style="
+                        color:var(--primary-color);
+                        font-size:24px;
+                        line-height:1.4;
+                        font-weight:700;
+                        margin-bottom:22px;">
+                    Live in production for practices using:
                 </p>
 
                 <div style="
@@ -521,7 +591,6 @@
                     <span class="ehr-badge">ModMed</span>
                 </div>
 
-                <!-- STEP 4: WHO QUALIFIES — added a real sentence for Google to read (logos/badges alone aren't readable text) -->
                 <p style="
                     color:var(--primary-color);
                     font-size:16px;
@@ -547,7 +616,7 @@
                         opacity:0.85;
                         max-width:720px;
                         margin:20px auto 0;">
-                    Each AI receptionist is configured specifically for your practice, so we only onboard a limited number of new practices each week.
+                    Each production AI receptionist is configured specifically for your practice, so we only onboard a limited number of new live practices each week. The sandbox demo above is open to any NPI or GMC-verified provider right now.
                 </p>
 
             </div>
@@ -566,6 +635,7 @@
                                 you can start testing it right away.
                             </p>
                             <p><strong>No commitment. No credit card. Just experience it for yourself.</strong></p>
+                            <p style="font-size:14px; opacity:0.75;">This demo runs in our test environment (sandbox) and does not affect any live practice.</p>
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -588,12 +658,46 @@
                                     placeholder="(555) 123-4567"
                                     style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
                             </div>
+
+                            <!-- NEW: Country selector, drives which ID field shows -->
+                            <div class="form-group">
+                                <label for="req-country">Country</label>
+                                <select id="req-country" class="form-control" required
+                                    style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
+                                    <option value="" selected disabled>Select your country...</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                </select>
+                            </div>
+
+                            <!-- NEW: NPI field, shown for US -->
+                            <div class="form-group" id="npi-field-group" style="display:none;">
+                                <label for="req-npi">NPI Number (US)</label>
+                                <input type="text" id="req-npi" class="form-control"
+                                    placeholder="10-digit NPI number"
+                                    style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
+                            </div>
+
+                            <!-- NEW: GMC field, shown for UK -->
+                            <div class="form-group" id="gmc-field-group" style="display:none;">
+                                <label for="req-gmc">GMC Reference Number (UK)</label>
+                                <input type="text" id="req-gmc" class="form-control"
+                                    placeholder="7-digit GMC number"
+                                    style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
+                            </div>
+
                             <div class="form-group">
                                 <label for="req-website">Practice Website</label>
                                 <input type="url" id="req-website" class="form-control" required
                                     placeholder="https://yourpractice.com"
-                                    style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
+                                    style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:6px; width:100%;">
+                                <!-- NEW: default practice toggle -->
+                                <button type="button" id="use-sample-practice" class="use-sample-link">
+                                    I don't have a practice website — use a sample practice instead
+                                </button>
+                                <div style="margin-bottom:14px;"></div>
                             </div>
+
                             <div class="form-group">
                                 <label for="req-ehr">EHR System</label>
                                 <select id="req-ehr" class="form-control" required
@@ -640,7 +744,8 @@
                                         <div class="card-body">
                                             Yes. It's configured specifically for your practice using your
                                             scheduling rules, office hours, providers, locations, and frequently
-                                            asked questions.
+                                            asked questions. It runs in our test environment, so it never touches
+                                            a live practice's systems.
                                         </div>
                                     </div>
                                 </div>
@@ -766,8 +871,6 @@
         </section>
 
     </main>
-    <!-- Start of footer section
-============================================= -->
     <footer id="saas_two_footer" class="saas_two_footer_section relative-position">
         <div class="footer_content pera-content footerchange">
             <div class="container-fluid">
@@ -875,6 +978,49 @@
             $('#date').text(d.getFullYear());
         });
 
+        // NEW: Country selector toggles NPI vs GMC field
+        var countrySelect = document.getElementById('req-country');
+        var npiGroup = document.getElementById('npi-field-group');
+        var gmcGroup = document.getElementById('gmc-field-group');
+        var npiInput = document.getElementById('req-npi');
+        var gmcInput = document.getElementById('req-gmc');
+
+        countrySelect.addEventListener('change', function () {
+            if (this.value === 'US') {
+                npiGroup.style.display = 'block';
+                gmcGroup.style.display = 'none';
+                npiInput.required = true;
+                gmcInput.required = false;
+                gmcInput.value = '';
+            } else if (this.value === 'UK') {
+                gmcGroup.style.display = 'block';
+                npiGroup.style.display = 'none';
+                gmcInput.required = true;
+                npiInput.required = false;
+                npiInput.value = '';
+            }
+        });
+
+        // NEW: "Use sample practice" default website toggle
+        // Default sandbox practice: East Mississippi Medical Clinic
+        var DEFAULT_PRACTICE_URL = 'https://eastmsmedical.com/';
+        var websiteInput = document.getElementById('req-website');
+        var useSampleBtn = document.getElementById('use-sample-practice');
+        var usingSample = false;
+
+        useSampleBtn.addEventListener('click', function () {
+            usingSample = !usingSample;
+            if (usingSample) {
+                websiteInput.value = DEFAULT_PRACTICE_URL;
+                websiteInput.disabled = true;
+                useSampleBtn.textContent = 'Use my own practice website instead';
+            } else {
+                websiteInput.value = '';
+                websiteInput.disabled = false;
+                useSampleBtn.textContent = "I don't have a practice website — use a sample practice instead";
+            }
+        });
+
         // Request form -> n8n webhook
         document.getElementById('request-demo-form').addEventListener('submit', async function (e) {
             e.preventDefault();
@@ -883,7 +1029,11 @@
                 name: document.getElementById('req-name').value,
                 email: document.getElementById('req-email').value,
                 phone: document.getElementById('req-phone').value,
+                country: document.getElementById('req-country').value,
+                npi: document.getElementById('req-npi').value || null,
+                gmcNumber: document.getElementById('req-gmc').value || null,
                 websiteUrl: document.getElementById('req-website').value,
+                usingSamplePractice: usingSample,
                 ehrSystem: document.getElementById('req-ehr').value
             };
             status.textContent = 'Submitting your request… this can take a few minutes while we set up your personalized demo.';
@@ -902,6 +1052,8 @@
                     } else {
                         status.textContent = "Great! We have now configured your personalized AI receptionist - check your email now and call the demo line with your personal access code.";
                     }
+                } else if (data.reason === 'invalid_credential') {
+                    status.textContent = "We couldn't verify that NPI or GMC number. Please double-check it and try again, or contact us for help.";
                 } else {
                     status.textContent = "Something went wrong submitting your request. Please try again or contact us directly.";
                 }
