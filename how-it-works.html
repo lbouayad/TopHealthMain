@@ -1008,16 +1008,23 @@
         var useSampleBtn = document.getElementById('use-sample-practice');
         var usingSample = false;
 
+        // Explicit label constants so the button always starts in the correct, unchecked state
+        var LABEL_USE_SAMPLE = "I don't have a practice website — use a sample practice instead";
+        var LABEL_USE_OWN = "Use my own practice website instead";
+        useSampleBtn.textContent = LABEL_USE_SAMPLE; // force correct initial state on page load
+        usingSample = false;
+        websiteInput.disabled = false;
+
         useSampleBtn.addEventListener('click', function () {
             usingSample = !usingSample;
             if (usingSample) {
                 websiteInput.value = DEFAULT_PRACTICE_URL;
                 websiteInput.disabled = true;
-                useSampleBtn.textContent = 'Use my own practice website instead';
+                useSampleBtn.textContent = LABEL_USE_OWN;
             } else {
                 websiteInput.value = '';
                 websiteInput.disabled = false;
-                useSampleBtn.textContent = "I don't have a practice website — use a sample practice instead";
+                useSampleBtn.textContent = LABEL_USE_SAMPLE;
             }
         });
 
