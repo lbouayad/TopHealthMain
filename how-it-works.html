@@ -152,7 +152,6 @@
             visibility: visible !important;
         }
 
-        /* NEW: eligibility badges for NPI / GMC */
         .eligibility-badge {
             display: inline-flex;
             align-items: center;
@@ -169,7 +168,6 @@
             font-weight: 700;
         }
 
-        /* NEW: default-practice link styling */
         .use-sample-link {
             display: inline-block;
             margin-top: 8px;
@@ -180,6 +178,37 @@
             background: none;
             border: none;
             padding: 0;
+        }
+
+        /* NEW: role toggle buttons */
+        .role-toggle-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .role-toggle-btn {
+            flex: 1;
+            padding: 14px 12px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            background: #ffffff;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.15s ease;
+        }
+        .role-toggle-btn.active {
+            background: var(--secondary-color);
+            color: #ffffff;
+        }
+        .field-hint {
+            font-size: 13px;
+            opacity: 0.7;
+            margin-top: -8px;
+            margin-bottom: 14px;
+            display: block;
         }
 
         @media (max-width: 767.98px) {
@@ -218,6 +247,10 @@
             .eligibility-badge {
                 font-size: 15px !important;
                 min-width: 140px;
+            }
+
+            .role-toggle-group {
+                flex-direction: column;
             }
         }
 
@@ -279,7 +312,6 @@
             transition: background-color 9999s ease-out 0s;
         }
 
-        /* NEW: disabled/prefilled field style, so it's visually clear it's auto-filled */
         #request-demo-form input:disabled {
             background-color: #f1e5d8 !important;
             opacity: 0.9 !important;
@@ -517,7 +549,6 @@
         <section class="compliantsection hipaa_complients demotology_rule pt-4 pb-4 qualification-section">
             <div class="container text-center">
 
-                <!-- NEW: sandbox eligibility block, sits above the existing production-EHR block -->
                 <p style="
                     text-transform:uppercase;
                     letter-spacing:1px;
@@ -536,7 +567,7 @@
                         line-height:1.4;
                         font-weight:700;
                         margin-bottom:22px;">
-                    Any licensed provider with a valid NPI (US) or GMC registration (UK) can test Jenna's sandbox demo, free.
+                    Any licensed provider with a valid NPI (US) or GMC registration (UK) — or any practice office manager with a work email — can test Jenna's sandbox demo, free.
                 </p>
 
                 <div style="
@@ -547,6 +578,7 @@
                     margin-bottom:28px;">
                     <span class="eligibility-badge">Valid US NPI</span>
                     <span class="eligibility-badge">Valid UK GMC Registration</span>
+                    <span class="eligibility-badge">Practice Office Manager</span>
                 </div>
 
                 <p style="
@@ -617,7 +649,7 @@
                         opacity:0.85;
                         max-width:720px;
                         margin:20px auto 0;">
-                    Each production AI receptionist is configured specifically for your practice, so we only onboard a limited number of new live practices each week. The sandbox demo above is open to any NPI or GMC-verified provider right now.
+                    Each production AI receptionist is configured specifically for your practice, so we only onboard a limited number of new live practices each week. The sandbox demo above is open to any NPI or GMC-verified provider, or verified practice office manager, right now.
                 </p>
 
             </div>
@@ -647,6 +679,16 @@
                                     placeholder="Dr. Jane Smith"
                                     style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
                             </div>
+
+                            <!-- NEW: Role toggle — decides which eligibility path shows below -->
+                            <div class="form-group">
+                                <label>I am a...</label>
+                                <div class="role-toggle-group">
+                                    <button type="button" class="role-toggle-btn active" id="role-provider-btn">Licensed Provider</button>
+                                    <button type="button" class="role-toggle-btn" id="role-manager-btn">Practice Office Manager</button>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="req-email">Email</label>
                                 <input type="email" id="req-email" class="form-control" required
@@ -660,31 +702,38 @@
                                     style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
                             </div>
 
-                            <!-- NEW: Country selector, drives which ID field shows -->
-                            <div class="form-group">
-                                <label for="req-country">Country</label>
-                                <select id="req-country" class="form-control" required
-                                    style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
-                                    <option value="" selected disabled>Select your country...</option>
-                                    <option value="US">United States</option>
-                                    <option value="UK">United Kingdom</option>
-                                </select>
+                            <!-- Provider path fields -->
+                            <div id="provider-fields">
+                                <div class="form-group">
+                                    <label for="req-country">Country</label>
+                                    <select id="req-country" class="form-control"
+                                        style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
+                                        <option value="" selected disabled>Select your country...</option>
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" id="npi-field-group" style="display:none;">
+                                    <label for="req-npi">NPI Number (US)</label>
+                                    <input type="text" id="req-npi" class="form-control"
+                                        placeholder="10-digit NPI number"
+                                        style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
+                                </div>
+
+                                <div class="form-group" id="gmc-field-group" style="display:none;">
+                                    <label for="req-gmc">GMC Reference Number (UK)</label>
+                                    <input type="text" id="req-gmc" class="form-control"
+                                        placeholder="7-digit GMC number"
+                                        style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
+                                </div>
                             </div>
 
-                            <!-- NEW: NPI field, shown for US -->
-                            <div class="form-group" id="npi-field-group" style="display:none;">
-                                <label for="req-npi">NPI Number (US)</label>
-                                <input type="text" id="req-npi" class="form-control"
-                                    placeholder="10-digit NPI number"
-                                    style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
-                            </div>
-
-                            <!-- NEW: GMC field, shown for UK -->
-                            <div class="form-group" id="gmc-field-group" style="display:none;">
-                                <label for="req-gmc">GMC Reference Number (UK)</label>
-                                <input type="text" id="req-gmc" class="form-control"
-                                    placeholder="7-digit GMC number"
-                                    style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
+                            <!-- NEW: Office manager path — no NPI/GMC, email domain must match practice website -->
+                            <div id="manager-fields" style="display:none;">
+                                <p class="field-hint" style="opacity:0.8; margin-bottom:14px;">
+                                    Use your practice work email (e.g., jane@yourpractice.com) — it must match your practice website's domain below.
+                                </p>
                             </div>
 
                             <div class="form-group">
@@ -692,7 +741,6 @@
                                 <input type="url" id="req-website" class="form-control" required
                                     placeholder="https://yourpractice.com"
                                     style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:6px; width:100%;">
-                                <!-- NEW: default practice toggle -->
                                 <button type="button" id="use-sample-practice" class="use-sample-link">
                                     I don't have a practice website — use a sample practice instead
                                 </button>
@@ -979,40 +1027,72 @@
             $('#date').text(d.getFullYear());
         });
 
-        // NEW: Country selector toggles NPI vs GMC field
-        var countrySelect = document.getElementById('req-country');
-        var npiGroup = document.getElementById('npi-field-group');
-        var gmcGroup = document.getElementById('gmc-field-group');
-        var npiInput = document.getElementById('req-npi');
-        var gmcInput = document.getElementById('req-gmc');
+        // NEW: Role toggle — Provider vs Office Manager
+        var currentRole = 'provider'; // 'provider' | 'manager'
+        var roleProviderBtn = document.getElementById('role-provider-btn');
+        var roleManagerBtn = document.getElementById('role-manager-btn');
+        var providerFields = document.getElementById('provider-fields');
+        var managerFields = document.getElementById('manager-fields');
+        var countrySelectEl = document.getElementById('req-country');
+        var npiInputEl = document.getElementById('req-npi');
+        var gmcInputEl = document.getElementById('req-gmc');
 
-        countrySelect.addEventListener('change', function () {
+        function setRole(role) {
+            currentRole = role;
+            if (role === 'provider') {
+                roleProviderBtn.classList.add('active');
+                roleManagerBtn.classList.remove('active');
+                providerFields.style.display = 'block';
+                managerFields.style.display = 'none';
+                countrySelectEl.required = true;
+            } else {
+                roleManagerBtn.classList.add('active');
+                roleProviderBtn.classList.remove('active');
+                providerFields.style.display = 'none';
+                managerFields.style.display = 'block';
+                // Clear provider-only requirements so they don't block submission
+                countrySelectEl.required = false;
+                npiInputEl.required = false;
+                gmcInputEl.required = false;
+                npiInputEl.value = '';
+                gmcInputEl.value = '';
+                countrySelectEl.value = '';
+                npiFieldGroup.style.display = 'none';
+                gmcFieldGroup.style.display = 'none';
+            }
+        }
+
+        roleProviderBtn.addEventListener('click', function () { setRole('provider'); });
+        roleManagerBtn.addEventListener('click', function () { setRole('manager'); });
+
+        // Country selector toggles NPI vs GMC field (provider path only)
+        var npiFieldGroup = document.getElementById('npi-field-group');
+        var gmcFieldGroup = document.getElementById('gmc-field-group');
+
+        countrySelectEl.addEventListener('change', function () {
             if (this.value === 'US') {
-                npiGroup.style.display = 'block';
-                gmcGroup.style.display = 'none';
-                npiInput.required = true;
-                gmcInput.required = false;
-                gmcInput.value = '';
+                npiFieldGroup.style.display = 'block';
+                gmcFieldGroup.style.display = 'none';
+                npiInputEl.required = true;
+                gmcInputEl.required = false;
+                gmcInputEl.value = '';
             } else if (this.value === 'UK') {
-                gmcGroup.style.display = 'block';
-                npiGroup.style.display = 'none';
-                gmcInput.required = true;
-                npiInput.required = false;
-                npiInput.value = '';
+                gmcFieldGroup.style.display = 'block';
+                npiFieldGroup.style.display = 'none';
+                gmcInputEl.required = true;
+                npiInputEl.required = false;
+                npiInputEl.value = '';
             }
         });
 
-        // NEW: "Use sample practice" default website toggle
-        // Default sandbox practice: East Mississippi Medical Clinic
+        // "Use sample practice" default website toggle
         var DEFAULT_PRACTICE_URL = 'https://eastmsmedical.com/';
         var websiteInput = document.getElementById('req-website');
         var useSampleBtn = document.getElementById('use-sample-practice');
         var usingSample = false;
-
-        // Explicit label constants so the button always starts in the correct, unchecked state
         var LABEL_USE_SAMPLE = "I don't have a practice website — use a sample practice instead";
         var LABEL_USE_OWN = "Use my own practice website instead";
-        useSampleBtn.textContent = LABEL_USE_SAMPLE; // force correct initial state on page load
+        useSampleBtn.textContent = LABEL_USE_SAMPLE;
         usingSample = false;
         websiteInput.disabled = false;
 
@@ -1029,15 +1109,50 @@
             }
         });
 
+        // Helper: extract a bare domain from a website URL or email address
+        function extractDomain(value) {
+            if (!value) return '';
+            var v = value.trim().toLowerCase();
+            // If it looks like an email, take the part after @
+            if (v.includes('@')) {
+                v = v.split('@')[1] || '';
+            } else {
+                // Strip protocol
+                v = v.replace(/^https?:\/\//, '');
+                // Strip path/query
+                v = v.split('/')[0];
+            }
+            // Strip leading www.
+            v = v.replace(/^www\./, '');
+            return v;
+        }
+
         // Request form -> n8n webhook
         document.getElementById('request-demo-form').addEventListener('submit', async function (e) {
             e.preventDefault();
             var status = document.getElementById('request-status');
+
+            // NEW: for office managers, validate email domain matches practice website domain
+            // before submitting — this is a client-side convenience check; the real
+            // enforcement should also happen server-side in n8n.
+            if (currentRole === 'manager') {
+                var emailVal = document.getElementById('req-email').value;
+                var websiteVal = document.getElementById('req-website').value;
+                var emailDomain = extractDomain(emailVal);
+                var siteDomain = extractDomain(websiteVal);
+
+                if (!emailDomain || !siteDomain || emailDomain !== siteDomain) {
+                    status.textContent = "Your work email must match your practice website's domain (e.g., jane@yourpractice.com for yourpractice.com). Please double-check and try again.";
+                    return;
+                }
+            }
+
             var payload = {
                 name: document.getElementById('req-name').value,
+                role: currentRole, // 'provider' | 'manager'
                 email: document.getElementById('req-email').value,
                 phone: document.getElementById('req-phone').value,
-                country: document.getElementById('req-country').value,
+                country: document.getElementById('req-country').value || null,
                 npi: document.getElementById('req-npi').value || null,
                 gmcNumber: document.getElementById('req-gmc').value || null,
                 websiteUrl: document.getElementById('req-website').value,
@@ -1062,6 +1177,8 @@
                     }
                 } else if (data.reason === 'invalid_credential') {
                     status.textContent = "We couldn't verify that NPI or GMC number. Please double-check it and try again, or contact us for help.";
+                } else if (data.reason === 'domain_mismatch') {
+                    status.textContent = "Your work email domain doesn't match your practice website. Please double-check and try again.";
                 } else {
                     status.textContent = "Something went wrong submitting your request. Please try again or contact us directly.";
                 }
