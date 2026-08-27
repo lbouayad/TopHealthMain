@@ -1147,6 +1147,29 @@
                 }
             }
 
+            // NEW: for US-based licensed providers only, verify the NPI via
+            // our own n8n webhook (which calls NPPES server-side, avoiding
+            // the browser CORS block). Office managers and UK providers
+            // never enter this block at all, so there's nothing to crash.
+            if (currentRole === 'provider' && document.getElementById('req-country').value === 'US') {
+                status.textContent = 'Verifying your NPI…';
+                try {
+                    var npiRes = await fetch('https://automation.tophealth.ai/webhook/verify-npi', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ npi: document.getElementById('req-npi').value })
+                    });
+                    var npiData = await npiRes.json().catch(function () { return {}; });
+                    if (!npiRes.ok || !npiData.valid) {
+                        status.textContent = "We couldn't verify that NPI number. Please double-check it and try again.";
+                        return;
+                    }
+                } catch (err) {
+                    status.textContent = "We couldn't verify that NPI right now. Please try again shortly.";
+                    return;
+                }
+            }
+
             var payload = {
                 name: document.getElementById('req-name').value,
                 role: currentRole, // 'provider' | 'manager'
