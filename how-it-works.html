@@ -1127,6 +1127,34 @@
             return v;
         }
 
+        // Helper: validate a US NPI against the free public NPPES registry
+        // (CMS's official NPI lookup API, no API key required).
+        async function validateNPI(npi) {
+            if (!npi || !/^\d{10}$/.test(npi)) {
+                return { valid: false, reason: 'NPI must be exactly 10 digits.' };
+            }
+            try {
+                var res = await fetch('https://npiregistry.cms.hhs.gov/api/?number=' + encodeURIComponent(npi) + '&version=2.1');
+                var data = await res.json();
+                if (data.result_count && data.result_count > 0) {
+                    var result = data.results[0];
+                    var status = result.basic && result.basic.status;
+                    if (status === 'A') {
+                        // Active NPI — return the registered name too, so we can
+                        // sanity-check it roughly matches the name they typed.
+                        return { valid: true, npiName: (result.basic.first_name || '') + ' ' + (result.basic.last_name || '') };
+                    }
+                    return { valid: false, reason: 'This NPI is registered but not currently active.' };
+                }
+                return { valid: false, reason: 'We could not find that NPI in the national registry.' };
+            } catch (err) {
+                // Network/API failure — don't hard-block the user on our own
+                // infrastructure issue, but flag it so submission still pauses
+                // for a manual look rather than silently accepting anything.
+                return { valid: false, reason: 'We could not verify that NPI right now. Please double-check it or try again shortly.' };
+            }
+        }
+
         // Request form -> n8n webhook
         document.getElementById('request-demo-form').addEventListener('submit', async function (e) {
             e.preventDefault();
@@ -1143,6 +1171,18 @@
 
                 if (!emailDomain || !siteDomain || emailDomain !== siteDomain) {
                     status.textContent = "Your work email must match your practice website's domain (e.g., jane@yourpractice.com for yourpractice.com). Please double-check and try again.";
+                    return;
+                }
+            }
+
+            // NEW: for licensed providers in the US, validate the NPI against
+            // the real NPPES national registry before allowing submission —
+            // this is what stops a fake/made-up 10-digit number from getting through.
+            if (currentRole === 'provider' && document.getElementById('req-country').value === 'US') {
+                status.textContent = 'Verifying your NPI…';
+                var npiCheck = await validateNPI(document.getElementById('req-npi').value);
+                if (!npiCheck.valid) {
+                    status.textContent = npiCheck.reason || "We couldn't verify that NPI number. Please double-check it and try again.";
                     return;
                 }
             }
