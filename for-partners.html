@@ -71,7 +71,7 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="./for-partners">
+                    <a class="nav-link active" href="./for-partners">
                         For Partners
                     </a>
                 </li>
@@ -83,7 +83,7 @@
                     alt="logo" /> </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="./The-Team">
+                    <a class="nav-link" href="./The-Team">
                         The Team
                     </a>
                 </li>
@@ -98,16 +98,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <button onclick="myFunction()" class="button_qr" style="padding-top: 4px;">
-                        <img src="./Content/Themes/assets/img/qricon.svg" alt="qricon"
-                            style="filter:invert(1);width:25px;">
-                        <div class="qa_cmble qa_cmbleone" id="myDIV" style="display:none;">
-                            <p>Login through App</p>
-                            <img alt="qrcode" id="BindQRImage"
-                                style="width: 70%; border: 1px solid #ccc; border-radius: 5px;">
-                        </div>
-                    </button>
-
+                    <a class="nav-link" href="./contact-us">
+                        Contact
+                    </a>
                 </li>
 
             </ul>
@@ -313,20 +306,11 @@
         <div class="footer_content pera-content footerchange">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6 col-md-6">
-                        <div class="s2_footer_widget clearfix ul-li-block  saas2-headline">
-                            <div class="s2_footer_about" style="font-size:18px; display:inline-grid; line-height:35px">
-                                <div class="s2-footer_logo">
-                                    <h3 class="s2_widget_title"><span>Download App</span><i></i></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="col-lg-4 col-sm-6 col-md-6">
                         <div class="s2_footer_widget clearfix ul-li-block saas2-headline">
                             <div class="s2_footer_menu">
                                 <h3 class="s2_widget_title">
-                                    <span>Contact</span>
+                                    <a href="./contact-us" style="color:inherit; text-decoration:none;"><span>Contact</span></a>
                                     <i></i>
                                 </h3>
                                 <div class="s2_footer_social mt-3">
@@ -343,7 +327,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="col-lg-4 col-sm-6 col-md-6">
                         <div class="s2_footer_widget clearfix ul-li-block saas2-headline remote_patients">
                             <div class="s2_footer_menu">
                                 <h3 class="s2_widget_title">
@@ -369,7 +353,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-sm-6 col-md-6">
+                    <div class="col-lg-4 col-sm-6 col-md-6">
                         <div class="s2_footer_widget clearfix ul-li-block saas2-headline">
                             <div class="s2_footer_social">
                                 <h3 class="s2_widget_title"><span>Address</span><i></i></h3>
@@ -404,16 +388,6 @@
 
     <!-- Custom JavaScript -->
     <script>
-        // QR Code toggle function
-        function myFunction() {
-            var x = document.getElementById("myDIV");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
         // Set current year in footer
         $(function () {
             var d = new Date();
