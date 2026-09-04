@@ -97,19 +97,6 @@
                         How It Works
                     </a>
                 </li>
-                <li class="nav-item">
-                    <button onclick="myFunction()" class="button_qr" style="padding-top: 4px;">
-                        <img src="./Content/Themes/assets/img/qricon.svg" alt="qricon"
-                            style="filter:invert(1);width:25px;">
-                        <div class="qa_cmble qa_cmbleone" id="myDIV" style="display:none;">
-                            <p>Login through App</p>
-                            <img alt="qrcode" id="BindQRImage"
-                                style="width: 70%; border: 1px solid #ccc; border-radius: 5px;">
-                        </div>
-                    </button>
-
-                </li>
-
             </ul>
 
         </div>
@@ -448,16 +435,6 @@
 
     <!-- Custom JavaScript -->
     <script>
-        // QR Code toggle function
-        function myFunction() {
-            var x = document.getElementById("myDIV");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
         // Set current year in footer
         $(function () {
             var d = new Date();
