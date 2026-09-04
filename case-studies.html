@@ -87,15 +87,6 @@
             How It Works
           </a>
         </li>
-        <li class="nav-item">
-          <button onclick="myFunction()" class="button_qr" style="padding-top: 4px;">
-            <img src="./Content/Themes/assets/img/qricon.svg" alt="qricon" style="filter:invert(1);width:25px;">
-            <div class="qa_cmble qa_cmbleone" id="myDIV" style="display:none;">
-              <p>Login through App</p>
-              <img alt="qrcode" id="BindQRImage" style="width: 70%; border: 1px solid #ccc; border-radius: 5px;">
-            </div>
-          </button>
-        </li>
       </ul>
     </div>
   </nav>
@@ -361,16 +352,7 @@
     <div class="footer_content pera-content footerchange">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-3 col-sm-6 col-md-6">
-            <div class="s2_footer_widget clearfix ul-li-block  saas2-headline">
-              <div class="s2_footer_about" style="font-size:18px; display:inline-grid; line-height:35px">
-                <div class="s2-footer_logo">
-                  <h3 class="s2_widget_title"><span>Download App</span><i></i></h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 col-md-6">
+          <div class="col-lg-4 col-sm-6 col-md-6">
             <div class="s2_footer_widget clearfix ul-li-block saas2-headline">
               <div class="s2_footer_menu">
                 <h3 class="s2_widget_title">
@@ -391,7 +373,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-6 col-md-6">
+          <div class="col-lg-4 col-sm-6 col-md-6">
             <div class="s2_footer_widget clearfix ul-li-block saas2-headline remote_patients">
               <div class="s2_footer_menu">
                 <h3 class="s2_widget_title">
@@ -417,7 +399,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-6 col-md-6">
+          <div class="col-lg-4 col-sm-6 col-md-6">
             <div class="s2_footer_widget clearfix ul-li-block saas2-headline">
               <div class="s2_footer_social">
                 <h3 class="s2_widget_title"><span>Address</span><i></i></h3>
@@ -439,7 +421,6 @@
   <script src="./Content/Themes/Coral/js/vendors/jquery/jquery-1.11.3.min.js"></script>
   <script src="./Content/Themes/assets/js/popper.min.js"></script>
   <script src="./Content/js/bootstrap.min.js"></script>
-  <script src="./Content/Themes/assets/js/script.js"></script>
   <script src="./Content/js/select2.min.js"></script>
   <script src="./Content/js/chosen.jquery.js"></script>
   <script src="./Content/js/jquery.validate.min.js"></script>
@@ -450,15 +431,6 @@
   <script src="./Content/js/scripts.js"></script>
   <!-- Custom JavaScript -->
   <script>
-    // QR Code toggle function
-    function myFunction() {
-      var x = document.getElementById("myDIV");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    }
     // Set current year in footer
     $(function () {
       var d = new Date();
