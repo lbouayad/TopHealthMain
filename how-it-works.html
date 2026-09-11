@@ -1154,35 +1154,16 @@
             return v;
         }
 
-        // Helper: validate a US NPI against the free public NPPES registry.
-        // NPPES itself blocks direct browser calls (no CORS headers), so this
-        // routes the request through a public CORS proxy (allorigins.win),
-        // which fetches NPPES server-side and returns it with the right
-        // headers for browser JS to read. Purely client-side — no backend change.
+        // NPI check: format only (exactly 10 digits). We previously verified NPIs
+        // against the live NPPES registry via a public CORS proxy, but that proxy
+        // has no uptime guarantee and started failing unpredictably. Until NPI
+        // verification is moved server-side (e.g. into the n8n webhook, which can
+        // call NPPES directly without CORS restrictions), we only check the format.
         async function validateNPI(npi) {
             if (!npi || !/^\d{10}$/.test(npi)) {
                 return { valid: false, reason: 'NPI must be exactly 10 digits.' };
             }
-            var nppesUrl = 'https://npiregistry.cms.hhs.gov/api/?number=' + encodeURIComponent(npi) + '&version=2.1';
-            var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(nppesUrl);
-            try {
-                var res = await fetch(proxyUrl);
-                if (!res.ok) {
-                    return { valid: false, reason: 'We could not verify that NPI right now. Please double-check it or try again shortly.' };
-                }
-                var data = await res.json();
-                if (data.result_count && data.result_count > 0) {
-                    var result = data.results[0];
-                    var status = result.basic && result.basic.status;
-                    if (status === 'A') {
-                        return { valid: true };
-                    }
-                    return { valid: false, reason: 'This NPI is registered but not currently active.' };
-                }
-                return { valid: false, reason: 'We could not find that NPI in the national registry.' };
-            } catch (err) {
-                return { valid: false, reason: 'We could not verify that NPI right now. Please double-check it or try again shortly.' };
-            }
+            return { valid: true };
         }
 
         // Request form -> n8n webhook
@@ -1210,7 +1191,7 @@
             // Office managers and UK providers never enter this block, so
             // there's nothing to crash for them.
             if (currentRole === 'provider' && document.getElementById('req-country').value === 'US') {
-                status.textContent = 'Verifying your NPI…';
+                status.textContent = 'Checking NPI format…';
                 var npiCheck = await validateNPI(document.getElementById('req-npi').value);
                 if (!npiCheck.valid) {
                     status.textContent = npiCheck.reason || "We couldn't verify that NPI number. Please double-check it and try again.";
