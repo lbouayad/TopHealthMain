@@ -134,6 +134,27 @@
       tab-index: -1;
     }
   </style>
+  <style>
+    /* "Free Missed Calls Report" menu button */
+    .top_header .navbar-nav .nav-link.pat-nav-btn {
+      background: #c06f33;
+      color: #ffffff !important;
+      border-radius: 8px;
+      padding: 8px 16px !important;
+      margin-left: 8px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .top_header .navbar-nav .nav-link.pat-nav-btn:hover {
+      background: #a55d29;
+    }
+    @media (max-width: 991px) {
+      .top_header .navbar-nav .nav-link.pat-nav-btn {
+        display: inline-block;
+        margin: 8px 0;
+      }
+    }
+  </style>
 </head>
 <body class="saas-classic">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark top_header">
@@ -175,6 +196,11 @@
         <li class="nav-item">
           <a class="nav-link active" href="./contact-us">
             Contact
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pat-nav-btn" href="./missed-calls-report">
+            Free Missed Calls Report
           </a>
         </li>
       </ul>
