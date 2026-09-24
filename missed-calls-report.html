@@ -84,7 +84,7 @@
         .mcr-hero {
             background: #fffbf7;
             color: #30211f;
-            padding: 64px 16px 72px;
+            padding: 56px 16px 72px;
         }
         .mcr-hero .mcr-inner {
             max-width: 1100px;
@@ -106,10 +106,10 @@
             color: #c06f33;
             margin-bottom: 12px;
         }
-        .mcr-hero h1 {
+        .mcr-hero .mcr-h2 {
             color: #30211f;
-            font-size: clamp(30px, 4vw, 44px);
-            line-height: 1.15;
+            font-size: clamp(26px, 3vw, 34px);
+            line-height: 1.2;
             margin: 0 0 16px;
             font-weight: 700;
             text-align: left;
@@ -291,15 +291,26 @@
 
     <main class="">
 
-        <!-- Hero + form -->
+        <!-- Hero: same banner style as the other pages, so the menu sits on it correctly -->
+        <section class="section_telemedicine_platform telehealth">
+            <div class="container">
+                <div class="section_trusted_paragraph">
+                    <p style="font-size:15px; font-weight:700; text-transform:uppercase; letter-spacing:1px; opacity:0.75; margin-bottom:6px;">Free for Independent Practices</p>
+                    <h1>Free Missed Calls Report</h1>
+                    <p style="font-size:20px; font-weight:700; margin-top:6px;">How easy is it for patients to reach your practice?</p>
+                    <p>See where patients may be getting lost before they ever reach your team. Delivered by email within one business day.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form section -->
         <section class="mcr-hero" id="report-form">
             <div class="mcr-inner">
                 <div>
-                    <span class="mcr-eyebrow">Free for independent practices</span>
-                    <h1>How easy is it for patients to reach your practice?</h1>
+                    <h2 class="mcr-h2">What your report shows</h2>
                     <p class="mcr-sub">
-                        Get a free Missed Calls Report for your office. See where patients may be getting lost
-                        before they ever reach your team.
+                        Most practices never find out how many patients give up before reaching the front desk.
+                        Your free Missed Calls Report shows you:
                     </p>
                     <ul class="mcr-list">
                         <li><i class="fas fa-check-circle"></i><span>How reliably callers reach a person at your practice</span></li>
