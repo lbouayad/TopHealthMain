@@ -596,7 +596,7 @@
                         line-height:1.4;
                         font-weight:700;
                         margin-bottom:22px;">
-                    Any licensed provider with a valid NPI (US) or GMC registration (UK) — including physicians, therapists, and other NPI-registered providers — or any practice office manager with a work email — can test Jenna's sandbox demo, free.
+                    Any licensed provider with a valid NPI — including physicians, therapists, and other NPI-registered providers — or any practice office manager with a work email — can test Jenna's sandbox demo, free.
                 </p>
 
                 <div style="
@@ -605,8 +605,7 @@
                     justify-content:center;
                     gap:14px;
                     margin-bottom:28px;">
-                    <span class="eligibility-badge">Valid US NPI</span>
-                    <span class="eligibility-badge">Valid UK GMC Registration</span>
+                    <span class="eligibility-badge">Valid NPI</span>
                     <span class="eligibility-badge">Practice Office Manager</span>
                 </div>
 
@@ -747,7 +746,7 @@
                         opacity:0.85;
                         max-width:720px;
                         margin:20px auto 0;">
-                    Each production AI receptionist is configured specifically for your practice, so we only onboard a limited number of new live practices each week. The sandbox demo above is open to any NPI or GMC-verified provider, or verified practice office manager, right now.
+                    Each production AI receptionist is configured specifically for your practice, so we only onboard a limited number of new live practices each week. The sandbox demo above is open to any NPI-verified provider or verified practice office manager, right now.
                 </p>
 
             </div>
@@ -802,32 +801,24 @@
 
                             <!-- Provider path fields -->
                             <div id="provider-fields">
-                                <div class="form-group">
+                                <!-- Country is fixed to US (field kept hidden for the demo workflow) -->
+                                <div class="form-group" style="display:none;">
                                     <label for="req-country">Country</label>
                                     <select id="req-country" class="form-control"
                                         style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
-                                        <option value="" selected disabled>Select your country...</option>
-                                        <option value="US">United States</option>
-                                        <option value="UK">United Kingdom</option>
+                                        <option value="US" selected>United States</option>
                                     </select>
                                 </div>
 
-                                <div class="form-group" id="npi-field-group" style="display:none;">
-                                    <label for="req-npi">NPI Number (US)</label>
+                                <div class="form-group" id="npi-field-group">
+                                    <label for="req-npi">NPI Number</label>
                                     <input type="text" id="req-npi" class="form-control"
                                         placeholder="10-digit NPI number"
                                         style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
                                 </div>
-
-                                <div class="form-group" id="gmc-field-group" style="display:none;">
-                                    <label for="req-gmc">GMC Reference Number (UK)</label>
-                                    <input type="text" id="req-gmc" class="form-control"
-                                        placeholder="7-digit GMC number"
-                                        style="border:2px solid var(--secondary-color); border-radius:8px; padding:10px 14px; margin-bottom:14px; width:100%;">
-                                </div>
                             </div>
 
-                            <!-- NEW: Office manager path — no NPI/GMC, email domain must match practice website -->
+                            <!-- Office manager path — no NPI, email domain must match practice website -->
                             <div id="manager-fields" style="display:none;">
                                 <p class="field-hint" style="opacity:0.8; margin-bottom:14px;">
                                     Use your practice work email (e.g., jane@yourpractice.com) — it must match your practice website's domain below.
@@ -1106,7 +1097,7 @@
         var managerFields = document.getElementById('manager-fields');
         var countrySelectEl = document.getElementById('req-country');
         var npiInputEl = document.getElementById('req-npi');
-        var gmcInputEl = document.getElementById('req-gmc');
+        var gmcInputEl = { value: '', required: false }; // GMC (UK) removed
 
         function setRole(role) {
             currentRole = role;
@@ -1115,7 +1106,9 @@
                 roleManagerBtn.classList.remove('active');
                 providerFields.style.display = 'block';
                 managerFields.style.display = 'none';
-                countrySelectEl.required = true;
+                countrySelectEl.value = 'US';
+                npiFieldGroup.style.display = 'block';
+                npiInputEl.required = true;
             } else {
                 roleManagerBtn.classList.add('active');
                 roleProviderBtn.classList.remove('active');
@@ -1129,32 +1122,15 @@
                 gmcInputEl.value = '';
                 countrySelectEl.value = '';
                 npiFieldGroup.style.display = 'none';
-                gmcFieldGroup.style.display = 'none';
             }
         }
 
         roleProviderBtn.addEventListener('click', function () { setRole('provider'); });
         roleManagerBtn.addEventListener('click', function () { setRole('manager'); });
 
-        // Country selector toggles NPI vs GMC field (provider path only)
+        // US only: the NPI field always shows on the provider path
         var npiFieldGroup = document.getElementById('npi-field-group');
-        var gmcFieldGroup = document.getElementById('gmc-field-group');
-
-        countrySelectEl.addEventListener('change', function () {
-            if (this.value === 'US') {
-                npiFieldGroup.style.display = 'block';
-                gmcFieldGroup.style.display = 'none';
-                npiInputEl.required = true;
-                gmcInputEl.required = false;
-                gmcInputEl.value = '';
-            } else if (this.value === 'UK') {
-                gmcFieldGroup.style.display = 'block';
-                npiFieldGroup.style.display = 'none';
-                gmcInputEl.required = true;
-                npiInputEl.required = false;
-                npiInputEl.value = '';
-            }
-        });
+        setRole('provider');
 
         // "Use sample practice" default website toggle
         var DEFAULT_PRACTICE_URL = 'https://eastmsmedical.com/';
@@ -1232,7 +1208,7 @@
 
             // NEW: for US-based licensed providers only, verify the NPI
             // entirely client-side via a CORS proxy in front of NPPES.
-            // Office managers and UK providers never enter this block, so
+            // Office managers never enter this block, so
             // there's nothing to crash for them.
             if (currentRole === 'provider' && document.getElementById('req-country').value === 'US') {
                 status.textContent = 'Checking NPI format…';
@@ -1250,7 +1226,7 @@
                 phone: document.getElementById('req-phone').value,
                 country: document.getElementById('req-country').value || null,
                 npi: document.getElementById('req-npi').value || null,
-                gmcNumber: document.getElementById('req-gmc').value || null,
+                gmcNumber: null,
                 websiteUrl: document.getElementById('req-website').value,
                 usingSamplePractice: usingSample,
                 ehrSystem: document.getElementById('req-ehr').value
@@ -1275,7 +1251,7 @@
                         try { fbq('track', 'Lead', { content_name: 'AI Receptionist Demo' }); } catch (e) {}
                     }
                 } else if (data.reason === 'invalid_credential') {
-                    status.textContent = "We couldn't verify that NPI or GMC number. Please double-check it and try again, or contact us for help.";
+                    status.textContent = "We couldn't verify that NPI number. Please double-check it and try again, or contact us for help.";
                 } else if (data.reason === 'domain_mismatch') {
                     status.textContent = "Your work email domain doesn't match your practice website. Please double-check and try again.";
                 } else {
