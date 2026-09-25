@@ -8,6 +8,7 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-Y4C38YJPH9');
+        gtag('config', 'G-HRN7TP32DP');
     </script>
     <!-- Meta Pixel Code -->
     <script>
@@ -1260,6 +1261,9 @@
                         status.textContent = "Looks like you already requested a demo — check your email for the access code we sent earlier, or contact us if you can't find it.";
                     } else {
                         status.textContent = "Great! We have now configured your personalized AI receptionist - check your email now and call the demo line with your personal access code.";
+                        // Conversion tracking: count a new demo request as a lead
+                        try { gtag('event', 'generate_lead', { form: 'demo_request' }); } catch (e) {}
+                        try { fbq('track', 'Lead', { content_name: 'AI Receptionist Demo' }); } catch (e) {}
                     }
                 } else if (data.reason === 'invalid_credential') {
                     status.textContent = "We couldn't verify that NPI or GMC number. Please double-check it and try again, or contact us for help.";
