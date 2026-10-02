@@ -616,7 +616,8 @@
                 function done() {
                     form.style.display = 'none';
                     thanks.style.display = 'block';
-                    // Conversion tracking
+                    // Conversion tracking (skipped for test submissions so Meta and Google don't learn from them)
+                    if (/^\s*PAT TEST/i.test(practiceName) || /@tophealth\.ai$/i.test(email)) return;
                     try { gtag('event', 'generate_lead', { form: 'missed_calls_report' }); } catch (err) {}
                     try { fbq('track', 'Lead', { content_name: 'Missed Calls Report' }); } catch (err) {}
                 }
