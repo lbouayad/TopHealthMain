@@ -195,6 +195,7 @@
         }
         .mcr-err { display: none; color: #b3261e; font-size: 13px; margin-top: 6px; }
         .mcr-field.has-error input, .mcr-field.has-error select { border-color: #b3261e; }
+        .mcr-group { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; color: #c06f33; margin: 22px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #f1e5d8; }
         .mcr-steps { margin: 4px 0 10px; padding-left: 20px; font-size: 14px; line-height: 1.5; color: #4a3b37; }
         .mcr-steps li { margin-bottom: 4px; }
         .mcr-steps b { color: #30211f; }
@@ -352,6 +353,8 @@
                         </ol>
                         <p class="mcr-card-sub"><strong style="color:#c06f33;">Limited to 10 practices a month.</strong></p>
 
+                        <div class="mcr-group">About your practice</div>
+
                         <div class="mcr-field" data-field="practiceName">
                             <label for="mcr-practice">Practice name</label>
                             <input id="mcr-practice" name="practiceName" type="text" autocomplete="organization"
@@ -381,23 +384,13 @@
                             <div class="mcr-err">Please choose your EHR (or "Not sure").</div>
                         </div>
 
+                        <div class="mcr-group">About you</div>
+
                         <div class="mcr-field" data-field="contactName">
                             <label for="mcr-name">Your name</label>
                             <input id="mcr-name" name="contactName" type="text" autocomplete="name"
                                 placeholder="Jane Smith" required>
                             <div class="mcr-err">Please enter your name.</div>
-                        </div>
-
-                        <div class="mcr-field" data-field="role">
-                            <label for="mcr-role">Your role</label>
-                            <select id="mcr-role" name="role" required>
-                                <option value="" disabled selected>Choose one</option>
-                                <option>Physician / Practice owner</option>
-                                <option>Practice or office manager</option>
-                                <option>Front desk / staff</option>
-                                <option>Other</option>
-                            </select>
-                            <div class="mcr-err">Please choose your role.</div>
                         </div>
 
                         <div class="mcr-field" data-field="email">
@@ -557,7 +550,6 @@
                 var contactName = form.contactName.value.trim();
                 var cellPhone = toE164(form.cellPhone.value);
                 var ehr = form.ehr.value;
-                var role = form.role.value;
                 var okName = practiceName.length > 1;
                 var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
                 var okContact = contactName.length > 1;
@@ -566,10 +558,9 @@
                 setError('phone', !phone);
                 setError('ehr', !ehr);
                 setError('contactName', !okContact);
-                setError('role', !role);
                 setError('email', !okEmail);
                 setError('cellPhone', !cellPhone);
-                if (!okName || !phone || !ehr || !okContact || !role || !okEmail || !cellPhone) {
+                if (!okName || !phone || !ehr || !okContact || !okEmail || !cellPhone) {
                     var first = form.querySelector('.has-error input, .has-error select');
                     if (first) first.focus();
                     return;
@@ -584,7 +575,6 @@
                     phone: phone,
                     email: email,
                     contactName: contactName,
-                    role: role,
                     ehr: ehr,
                     cellPhone: cellPhone,
                     website: form.website.value,   // honeypot, should be empty
