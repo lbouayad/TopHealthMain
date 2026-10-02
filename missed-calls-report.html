@@ -195,6 +195,9 @@
         }
         .mcr-err { display: none; color: #b3261e; font-size: 13px; margin-top: 6px; }
         .mcr-field.has-error input, .mcr-field.has-error select { border-color: #b3261e; }
+        .mcr-steps { margin: 4px 0 10px; padding-left: 20px; font-size: 14px; line-height: 1.5; color: #4a3b37; }
+        .mcr-steps li { margin-bottom: 4px; }
+        .mcr-steps b { color: #30211f; }
         .mcr-hint { font-size: 13px; color: #6b5d58; margin-top: 6px; }
         .mcr-field label.mcr-consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.45; color: #4a3b37; font-weight: 400; cursor: pointer; }
         .mcr-consent input { width: 20px; height: 20px; min-height: 0; flex: 0 0 20px; margin-top: 1px; accent-color: #c06f33; }
@@ -344,7 +347,12 @@
                 <div class="mcr-card">
                     <form id="mcr-form" novalidate>
                         <h2>Get your free report</h2>
-                        <p class="mcr-card-sub">Headline results by email within one business day, then a 15-minute call to walk you through the full call-by-call results.<br><strong style="color:#c06f33;">Limited to 10 practices a month.</strong></p>
+                        <ol class="mcr-steps">
+                            <li><b>We test your phone line</b> at different times of one business day.</li>
+                            <li><b>You get your headline results</b> by email within one business day.</li>
+                            <li><b>We review your full report together</b> in a 15-minute call.</li>
+                        </ol>
+                        <p class="mcr-card-sub"><strong style="color:#c06f33;">Limited to 10 practices a month.</strong></p>
 
                         <div class="mcr-field" data-field="practiceName">
                             <label for="mcr-practice">Practice name</label>
