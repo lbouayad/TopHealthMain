@@ -195,6 +195,9 @@
         }
         .mcr-err { display: none; color: #b3261e; font-size: 13px; margin-top: 6px; }
         .mcr-field.has-error input, .mcr-field.has-error select { border-color: #b3261e; }
+        .mcr-phone-row { display: flex; gap: 8px; }
+        .mcr-phone-row input:first-child { flex: 1 1 auto; }
+        .mcr-field .mcr-phone-row input#mcr-ext { flex: 0 0 90px; width: 90px; }
         .mcr-group { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; color: #c06f33; margin: 22px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #f1e5d8; }
         .mcr-steps { margin: 4px 0 10px; padding-left: 20px; font-size: 14px; line-height: 1.5; color: #4a3b37; }
         .mcr-steps li { margin-bottom: 4px; }
@@ -384,6 +387,12 @@
                             <div class="mcr-err">Please choose your EHR (or "Not sure").</div>
                         </div>
 
+                        <div class="mcr-field" data-field="ehrOther" id="mcr-ehr-other-wrap" style="display:none;">
+                            <label for="mcr-ehr-other">Which EHR?</label>
+                            <input id="mcr-ehr-other" name="ehrOther" type="text" placeholder="e.g. Practice Fusion">
+                            <div class="mcr-err">Please tell us which EHR you use.</div>
+                        </div>
+
                         <div class="mcr-group">About you</div>
 
                         <div class="mcr-field" data-field="contactName">
@@ -401,11 +410,15 @@
                         </div>
 
                         <div class="mcr-field" data-field="cellPhone">
-                            <label for="mcr-cell">Your cell phone</label>
-                            <input id="mcr-cell" name="cellPhone" type="tel" autocomplete="tel"
-                                placeholder="(813) 555-6789" required>
-                            <div class="mcr-hint">So we can reach you to go over your results.</div>
-                            <div class="mcr-err">Please enter a valid US cell number.</div>
+                            <label for="mcr-cell">Best number to reach you</label>
+                            <div class="mcr-phone-row">
+                                <input id="mcr-cell" name="cellPhone" type="tel" autocomplete="tel"
+                                    placeholder="(813) 555-6789" required>
+                                <input id="mcr-ext" name="ext" type="text" inputmode="numeric" maxlength="6"
+                                    placeholder="Ext." aria-label="Extension (optional)">
+                            </div>
+                            <div class="mcr-hint">Your cell, or the office number plus your extension. We'll use it to go over your results.</div>
+                            <div class="mcr-err">Please enter a valid US phone number.</div>
                         </div>
 
 
@@ -534,6 +547,15 @@
                 if (f) f.classList.toggle('has-error', on);
             }
 
+            // show the "Which EHR?" box only when "Other" is chosen
+            var ehrSel = document.getElementById('mcr-ehr');
+            var ehrOtherWrap = document.getElementById('mcr-ehr-other-wrap');
+            ehrSel.addEventListener('change', function () {
+                var show = ehrSel.value === 'Other';
+                ehrOtherWrap.style.display = show ? 'block' : 'none';
+                if (show) document.getElementById('mcr-ehr-other').focus();
+            });
+
             // clear a field's error as soon as the person fixes it
             ['input', 'change'].forEach(function (ev) {
                 form.addEventListener(ev, function (e) {
@@ -550,6 +572,11 @@
                 var contactName = form.contactName.value.trim();
                 var cellPhone = toE164(form.cellPhone.value);
                 var ehr = form.ehr.value;
+                var ehrOther = form.ehrOther.value.trim();
+                var okEhrOther = ehr !== 'Other' || ehrOther.length > 1;
+                if (ehr === 'Other' && okEhrOther) ehr = 'Other: ' + ehrOther;
+                var ext = form.ext.value.replace(/\D/g, '');
+                if (cellPhone && ext) cellPhone = cellPhone + ' ext. ' + ext;
                 var okName = practiceName.length > 1;
                 var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
                 var okContact = contactName.length > 1;
@@ -557,10 +584,11 @@
                 setError('practiceName', !okName);
                 setError('phone', !phone);
                 setError('ehr', !ehr);
+                setError('ehrOther', !okEhrOther);
                 setError('contactName', !okContact);
                 setError('email', !okEmail);
                 setError('cellPhone', !cellPhone);
-                if (!okName || !phone || !ehr || !okContact || !okEmail || !cellPhone) {
+                if (!okName || !phone || !ehr || !okEhrOther || !okContact || !okEmail || !cellPhone) {
                     var first = form.querySelector('.has-error input, .has-error select');
                     if (first) first.focus();
                     return;
