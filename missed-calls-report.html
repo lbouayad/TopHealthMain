@@ -172,7 +172,7 @@
             margin-bottom: 7px;
             color: #30211f;
         }
-        .mcr-field input {
+        .mcr-field input, .mcr-field select {
             display: block;
             width: 100%;
             font-size: 16px;
@@ -185,13 +185,19 @@
             -webkit-text-fill-color: #30211f;
         }
         .mcr-field input::placeholder { color: #9a8e89; -webkit-text-fill-color: #9a8e89; opacity: 1; }
-        .mcr-field input:focus {
+        .mcr-field select { appearance: auto; -webkit-appearance: menulist; }
+        .mcr-field select:invalid { color: #9a8e89; -webkit-text-fill-color: #9a8e89; }
+        .mcr-field select option { color: #30211f; }
+        .mcr-field input:focus, .mcr-field select:focus {
             outline: none;
             border-color: #c06f33;
             box-shadow: 0 0 0 3px rgba(192, 111, 51, 0.15);
         }
         .mcr-err { display: none; color: #b3261e; font-size: 13px; margin-top: 6px; }
-        .mcr-field.has-error input { border-color: #b3261e; }
+        .mcr-field.has-error input, .mcr-field.has-error select { border-color: #b3261e; }
+        .mcr-hint { font-size: 13px; color: #6b5d58; margin-top: 6px; }
+        .mcr-field label.mcr-consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.45; color: #4a3b37; font-weight: 400; cursor: pointer; }
+        .mcr-consent input { width: 20px; height: 20px; min-height: 0; flex: 0 0 20px; margin-top: 1px; accent-color: #c06f33; }
         .mcr-field.has-error .mcr-err { display: block; }
         .mcr-hp { position: absolute !important; left: -9999px !important; top: -9999px !important; height: 0; overflow: hidden; }
         .mcr-btn {
@@ -307,7 +313,7 @@
                     <p style="font-size:15px; font-weight:700; text-transform:uppercase; letter-spacing:1px; opacity:0.75; margin-bottom:6px;">Free for Independent Practices &middot; 10 per Month</p>
                     <h1>Free Missed Calls Report</h1>
                     <p style="font-size:20px; font-weight:700; margin-top:6px;">How easy is it for patients to reach your practice?</p>
-                    <p>See where patients may be getting lost before they ever reach your team. Delivered by email within one business day.</p>
+                    <p>See where patients may be getting lost before they ever reach your team. Headline results by email within one business day.</p>
                 </div>
             </div>
         </section>
@@ -338,7 +344,7 @@
                 <div class="mcr-card">
                     <form id="mcr-form" novalidate>
                         <h2>Get your free report</h2>
-                        <p class="mcr-card-sub">Delivered by email within one business day.<br><strong style="color:#c06f33;">Limited to 10 practices a month.</strong></p>
+                        <p class="mcr-card-sub">Headline results by email within one business day, then a 15-minute call to walk you through the full call-by-call results.<br><strong style="color:#c06f33;">Limited to 10 practices a month.</strong></p>
 
                         <div class="mcr-field" data-field="practiceName">
                             <label for="mcr-practice">Practice name</label>
@@ -354,11 +360,61 @@
                             <div class="mcr-err">Please enter a valid US phone number.</div>
                         </div>
 
+                        <div class="mcr-field" data-field="ehr">
+                            <label for="mcr-ehr">Which EHR does your practice use?</label>
+                            <select id="mcr-ehr" name="ehr" required>
+                                <option value="" disabled selected>Choose one</option>
+                                <option>athenahealth</option>
+                                <option>eClinicalWorks</option>
+                                <option>ModMed</option>
+                                <option>Epic</option>
+                                <option>NextGen</option>
+                                <option>Other</option>
+                                <option>Not sure</option>
+                            </select>
+                            <div class="mcr-err">Please choose your EHR (or "Not sure").</div>
+                        </div>
+
+                        <div class="mcr-field" data-field="contactName">
+                            <label for="mcr-name">Your name</label>
+                            <input id="mcr-name" name="contactName" type="text" autocomplete="name"
+                                placeholder="Jane Smith" required>
+                            <div class="mcr-err">Please enter your name.</div>
+                        </div>
+
+                        <div class="mcr-field" data-field="role">
+                            <label for="mcr-role">Your role</label>
+                            <select id="mcr-role" name="role" required>
+                                <option value="" disabled selected>Choose one</option>
+                                <option>Physician / Practice owner</option>
+                                <option>Practice or office manager</option>
+                                <option>Front desk / staff</option>
+                                <option>Other</option>
+                            </select>
+                            <div class="mcr-err">Please choose your role.</div>
+                        </div>
+
                         <div class="mcr-field" data-field="email">
                             <label for="mcr-email">Your email</label>
                             <input id="mcr-email" name="email" type="email" autocomplete="email"
                                 placeholder="you@yourpractice.com" required>
                             <div class="mcr-err">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="mcr-field" data-field="cellPhone">
+                            <label for="mcr-cell">Your cell phone</label>
+                            <input id="mcr-cell" name="cellPhone" type="tel" autocomplete="tel"
+                                placeholder="(813) 555-6789" required>
+                            <div class="mcr-hint">So we can reach you to go over your results.</div>
+                            <div class="mcr-err">Please enter a valid US cell number.</div>
+                        </div>
+
+                        <div class="mcr-field" data-field="consent">
+                            <label class="mcr-consent" for="mcr-consent">
+                                <input id="mcr-consent" name="consent" type="checkbox" required>
+                                <span id="mcr-consent-text">I agree that Top Health AI may call or text me at the cell number above about my report. Message and data rates may apply. Reply STOP to opt out.</span>
+                            </label>
+                            <div class="mcr-err">Please check the box so we can contact you about your report.</div>
                         </div>
 
                         <!-- Honeypot: real people never see or fill this -->
@@ -368,13 +424,13 @@
                         </div>
 
                         <button class="mcr-btn" type="submit">Get My Free Report</button>
-                        <p class="mcr-fine">Free. No sales call. No software to install.</p>
+                        <p class="mcr-fine">Free. No software to install. We'll only contact you about your report.</p>
                     </form>
 
                     <div class="mcr-thanks" id="mcr-thanks" role="status" aria-live="polite">
                         <div class="mcr-check"><i class="fas fa-check"></i></div>
                         <h2>Thank you!</h2>
-                        <p>Your Missed Calls Report will arrive by email within one business day.</p>
+                        <p>Your headline results will arrive by email within one business day. We'll reach out to set up a 15-minute call to walk you through the full results.</p>
                     </div>
                 </div>
             </div>
@@ -486,18 +542,41 @@
                 if (f) f.classList.toggle('has-error', on);
             }
 
+            // clear a field's error as soon as the person fixes it
+            ['input', 'change'].forEach(function (ev) {
+                form.addEventListener(ev, function (e) {
+                    var f = e.target.closest && e.target.closest('.mcr-field');
+                    if (f) f.classList.remove('has-error');
+                });
+            });
+
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 var practiceName = form.practiceName.value.trim();
                 var phone = toE164(form.phone.value);
                 var email = form.email.value.trim();
+                var contactName = form.contactName.value.trim();
+                var cellPhone = toE164(form.cellPhone.value);
+                var ehr = form.ehr.value;
+                var role = form.role.value;
+                var consent = form.consent.checked;
                 var okName = practiceName.length > 1;
                 var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                var okContact = contactName.length > 1;
 
                 setError('practiceName', !okName);
                 setError('phone', !phone);
+                setError('ehr', !ehr);
+                setError('contactName', !okContact);
+                setError('role', !role);
                 setError('email', !okEmail);
-                if (!okName || !phone || !okEmail) return;
+                setError('cellPhone', !cellPhone);
+                setError('consent', !consent);
+                if (!okName || !phone || !ehr || !okContact || !role || !okEmail || !cellPhone || !consent) {
+                    var first = form.querySelector('.has-error input, .has-error select');
+                    if (first) first.focus();
+                    return;
+                }
 
                 var btn = form.querySelector('.mcr-btn');
                 btn.disabled = true;
@@ -507,6 +586,12 @@
                     practiceName: practiceName,
                     phone: phone,
                     email: email,
+                    contactName: contactName,
+                    role: role,
+                    ehr: ehr,
+                    cellPhone: cellPhone,
+                    callConsent: consent ? 'yes' : 'no',
+                    consentText: document.getElementById('mcr-consent-text').textContent.trim(),
                     website: form.website.value,   // honeypot, should be empty
                     page: window.location.href,
                     submittedAt: new Date().toISOString()
