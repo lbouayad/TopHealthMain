@@ -199,8 +199,6 @@
         .mcr-steps li { margin-bottom: 4px; }
         .mcr-steps b { color: #30211f; }
         .mcr-hint { font-size: 13px; color: #6b5d58; margin-top: 6px; }
-        .mcr-field label.mcr-consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.45; color: #4a3b37; font-weight: 400; cursor: pointer; }
-        .mcr-consent input { width: 20px; height: 20px; min-height: 0; flex: 0 0 20px; margin-top: 1px; accent-color: #c06f33; }
         .mcr-field.has-error .mcr-err { display: block; }
         .mcr-hp { position: absolute !important; left: -9999px !important; top: -9999px !important; height: 0; overflow: hidden; }
         .mcr-btn {
@@ -417,13 +415,6 @@
                             <div class="mcr-err">Please enter a valid US cell number.</div>
                         </div>
 
-                        <div class="mcr-field" data-field="consent">
-                            <label class="mcr-consent" for="mcr-consent">
-                                <input id="mcr-consent" name="consent" type="checkbox" required>
-                                <span id="mcr-consent-text">I agree that Top Health AI may call or text me at the cell number above about my report. Message and data rates may apply. Reply STOP to opt out.</span>
-                            </label>
-                            <div class="mcr-err">Please check the box so we can contact you about your report.</div>
-                        </div>
 
                         <!-- Honeypot: real people never see or fill this -->
                         <div class="mcr-hp" aria-hidden="true">
@@ -567,7 +558,6 @@
                 var cellPhone = toE164(form.cellPhone.value);
                 var ehr = form.ehr.value;
                 var role = form.role.value;
-                var consent = form.consent.checked;
                 var okName = practiceName.length > 1;
                 var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
                 var okContact = contactName.length > 1;
@@ -579,8 +569,7 @@
                 setError('role', !role);
                 setError('email', !okEmail);
                 setError('cellPhone', !cellPhone);
-                setError('consent', !consent);
-                if (!okName || !phone || !ehr || !okContact || !role || !okEmail || !cellPhone || !consent) {
+                if (!okName || !phone || !ehr || !okContact || !role || !okEmail || !cellPhone) {
                     var first = form.querySelector('.has-error input, .has-error select');
                     if (first) first.focus();
                     return;
@@ -598,8 +587,6 @@
                     role: role,
                     ehr: ehr,
                     cellPhone: cellPhone,
-                    callConsent: consent ? 'yes' : 'no',
-                    consentText: document.getElementById('mcr-consent-text').textContent.trim(),
                     website: form.website.value,   // honeypot, should be empty
                     page: window.location.href,
                     submittedAt: new Date().toISOString()
