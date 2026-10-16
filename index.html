@@ -108,7 +108,7 @@
             color: #30211F !important;
         }
 
-        /* NEW: "Free Access Report" menu button */
+        /* "Free Missed Calls Report" menu button */
         .top_header .navbar-nav .nav-link.pat-nav-btn {
             background: #c06f33;
             color: #ffffff !important;
@@ -128,94 +128,57 @@
             }
         }
 
-        /* NEW: Patient Access Report band under the hero */
-        .pat-band {
-            background: #30211f;
-            color: #fffbf7;
-            padding: 56px 16px;
-            text-align: center;
+        /* ===== Simplified homepage ===== */
+        .th-wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+        .th-eyebrow { display:block; font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#c06f33; margin-bottom:10px; }
+        .th-btn { display:inline-block; border-radius:8px; padding:14px 30px; font-size:17px; font-weight:700; text-decoration:none; margin:6px; }
+        .th-btn-primary { background:#c06f33; color:#fff !important; border:2px solid #c06f33; }
+        .th-btn-primary:hover { background:#a55d29; border-color:#a55d29; }
+        .th-btn-ghost { background:transparent; color:#fffbf7 !important; border:2px solid #fffbf7; }
+        .th-btn-ghost:hover { background:rgba(255,251,247,.12); }
+        .th-btn-ghost-dark { background:transparent; color:#c06f33 !important; border:2px solid #c06f33; }
+
+        .th-hero { background:#30211f; color:#fffbf7; text-align:center; padding:72px 0 56px; }
+        .th-hero h1 { color:#fffbf7; font-size:clamp(34px,5.2vw,58px); line-height:1.1; font-weight:800; margin:0 auto 18px; max-width:820px; }
+        .th-hero .th-sub { color:#fffbf7; opacity:.92; font-size:clamp(18px,2.2vw,22px); line-height:1.5; font-weight:400; max-width:720px; margin:0 auto 28px; }
+        .th-chips { display:flex; flex-wrap:wrap; justify-content:center; gap:10px 26px; margin-top:30px; font-size:16px; font-weight:600; color:#fffbf7; }
+        .th-chips i { color:#e3a36f; margin-right:8px; }
+
+        .th-section { padding:64px 0; background:#fffbf7; }
+        .th-section.alt { background:#fff; }
+        .th-section h2 { color:#30211f; font-size:clamp(26px,3.4vw,36px); line-height:1.2; font-weight:800; text-align:center; margin:0 auto 14px; max-width:760px; }
+        .th-lead { text-align:center; color:#30211f; opacity:.85; font-size:18px; line-height:1.6; max-width:720px; margin:0 auto 36px; font-weight:400; }
+        .th-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+        .th-card { background:#fff; border:1px solid #f1e5d8; border-radius:12px; padding:26px 22px; }
+        .th-section.alt .th-card { background:#fffbf7; }
+        .th-card h3 { color:#30211f; font-size:20px; font-weight:700; margin:0 0 8px; }
+        .th-card p { color:#30211f; opacity:.85; font-size:16px; line-height:1.6; font-weight:400; margin:0; }
+        .th-icon { width:44px; height:44px; border-radius:50%; background:#30211f; color:#fffbf7; display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:14px; }
+        .th-center { text-align:center; margin-top:30px; }
+
+        .th-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+        .th-step .num { width:38px; height:38px; border-radius:50%; background:#c06f33; color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
+        .th-step h3 { color:#30211f; font-size:18px; font-weight:700; margin:0 0 6px; }
+        .th-step p { color:#30211f; opacity:.85; font-size:16px; line-height:1.55; margin:0; font-weight:400; }
+
+        .th-report { background:#30211f; color:#fffbf7; text-align:center; padding:56px 0; }
+        .th-report h2 { color:#fffbf7; font-size:clamp(24px,3.2vw,34px); font-weight:800; margin:0 auto 14px; max-width:720px; }
+        .th-report p { color:#fffbf7; opacity:.88; font-size:17px; line-height:1.6; max-width:640px; margin:0 auto; font-weight:400; }
+        .th-report .fine { font-size:14px; opacity:.7; margin-top:14px; }
+
+        .th-final { background:#c06f33; color:#fff; text-align:center; padding:60px 0; }
+        .th-final h2 { color:#fff; font-size:clamp(26px,3.4vw,36px); font-weight:800; margin:0 auto 12px; }
+        .th-final p { color:#fff; font-size:18px; margin:0 auto; max-width:640px; font-weight:400; }
+        .th-final .th-btn-primary { background:#30211f; border-color:#30211f; }
+        .th-final .th-btn-primary:hover { background:#1f1514; border-color:#1f1514; }
+
+        @media (max-width: 860px) {
+            .th-grid { grid-template-columns:1fr; }
+            .th-steps { grid-template-columns:1fr 1fr; }
+            .th-hero { padding:52px 0 40px; }
+            .th-section { padding:48px 0; }
         }
-        .pat-band .pat-eyebrow {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: #e3a36f;
-            margin-bottom: 12px;
-        }
-        .pat-band h2 {
-            color: #fffbf7;
-            font-size: clamp(26px, 3.5vw, 38px);
-            line-height: 1.2;
-            margin: 0 auto 16px;
-            max-width: 760px;
-        }
-        .pat-band p {
-            color: #fffbf7;
-            opacity: .88;
-            font-size: 17px;
-            font-weight: 400;
-            line-height: 1.6;
-            max-width: 680px;
-            margin: 0 auto;
-        }
-        .pat-band .pat-btn {
-            background: #c06f33;
-            color: #ffffff;
-            border-radius: 8px;
-            padding: 14px 32px;
-            font-size: 17px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 26px;
-        }
-        .pat-band .pat-btn:hover {
-            background: #a55d29;
-            color: #ffffff;
-        }
-        .pat-band .pat-fine {
-            font-size: 14px;
-            opacity: .7;
-            margin-top: 14px;
-        }
-        /* NEW: offer strip (24 hours / no system changes / pay per call) */
-        .offer-strip { margin: 26px auto 4px; max-width: 1000px; }
-        .offer-strip .offer-card {
-            background: #fffbf7;
-            border: 1px solid #f1e5d8;
-            border-radius: 12px;
-            padding: 20px 18px;
-            height: 100%;
-            text-align: left;
-            display: flex;
-            align-items: flex-start;
-        }
-        .offer-strip .offer-icon {
-            flex: 0 0 44px;
-            width: 44px; height: 44px;
-            border-radius: 50%;
-            background: #30211f;
-            color: #fffbf7;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px;
-            margin-right: 14px;
-        }
-        .offer-strip .offer-title { display: block; font-size: 17px; font-weight: 700; color: #30211f; margin-bottom: 4px; }
-        .offer-strip .offer-text { display: block; font-size: 15px; font-weight: 400; line-height: 1.5; color: #30211f; opacity: .85; }
-        @media (max-width: 767px) { .offer-strip .col-md-4 { margin-bottom: 12px; } }
-        /* Main page heading (H1) shown as a small label above the welcome headline */
-        .welcome h1.home-h1 {
-            display: block;
-            font-size: 14px;
-            line-height: 1.4;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: #c06f33;
-            margin: 0 0 10px;
-        }
+        @media (max-width: 520px) { .th-steps { grid-template-columns:1fr; } }
     </style>
 </head>
 
@@ -266,7 +229,7 @@
                         Contact
                     </a>
                 </li>
-                <!-- NEW: lead magnet menu button -->
+                <!-- lead magnet menu button -->
                 <li class="nav-item">
                     <a class="nav-link pat-nav-btn" href="./missed-calls-report">
                         Free Missed Calls Report
@@ -278,468 +241,117 @@
         </div>
     </nav>
 
+    <main>
 
-
-
-    <main class="">
-        <div class="p-0">
-            <img src="./Content/images/Banner.png"
-                alt="Top Health AI — Better Access. More Capacity. Lower Cost. Built for older and multilingual patients. Integrated with your EHR."
-                class="d-block w-100" style="width:100%; height:auto;">
-        </div>
-        <!-- NEW: Missed Calls Report band -->
-        <section class="pat-band">
-            <div class="container">
-                <span class="pat-eyebrow">Free for independent practices &middot; 10 per month</span>
-                <h2>How easy is it for patients to reach your practice?</h2>
-                <p>
-                    Most practices never find out how many patients give up before reaching the front desk.
-                    Get a free Missed Calls Report for your office, delivered by email within one business day.
+        <!-- HERO: says what the product is, immediately -->
+        <section class="th-hero">
+            <div class="th-wrap">
+                <span class="th-eyebrow">Top Health AI</span>
+                <h1>The AI receptionist built for medical practices</h1>
+                <p class="th-sub">
+                    It answers your patients' calls, books appointments in your EHR, and speaks English, Spanish, and Arabic. Live in 24 hours.
                 </p>
-                <a class="pat-btn" href="./missed-calls-report">Get My Free Missed Calls Report &#8594;</a>
-                <p class="pat-fine">Free. No sales call. No software to install. Limited to 10 practices a month.</p>
+                <a class="th-btn th-btn-primary" href="./how-it-works#request-form">Try Your Practice's AI Receptionist &#8594;</a>
+                <a class="th-btn th-btn-ghost" href="https://calendly.com/dr-lina-applina/30min" target="_blank">Talk to Our Team</a>
+                <div class="th-chips">
+                    <span><i class="fas fa-clock"></i>Live in 24 hours</span>
+                    <span><i class="fas fa-plug"></i>No new EHR or phone system</span>
+                    <span><i class="fas fa-dollar-sign"></i>Pay only per call handled</span>
+                </div>
             </div>
         </section>
 
-        <section class="welcome custom">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 col-12">
-                        <h1 class="home-h1">AI Receptionist for Medical Practices</h1>
-                        <h2>
-                            Better Patient Access Less Work for Your Staff
-                        </h2>
+        <!-- WHAT IT DOES -->
+        <section class="th-section">
+            <div class="th-wrap">
+                <h2>What your AI receptionist does</h2>
+                <p class="th-lead">It works alongside your front desk, so your staff spend less time on the phone and more time with patients.</p>
+                <div class="th-grid">
+                    <div class="th-card">
+                        <div class="th-icon"><i class="fas fa-phone-alt"></i></div>
+                        <h3>Answers every call</h3>
+                        <p>Handles scheduling, common questions, and routine requests using your providers, hours, and scheduling rules. It is easy for older patients to use, with a pace that adapts to the caller and patience for pauses.</p>
                     </div>
-                    <div class="col-md-6 col-12">
-                        <p style="font-size:16px; font-weight:400; line-height:1.6;">
-                            At <strong>Top Health AI</strong>, we help medical practices across specialties expand
-                            patient access, reduce staff workload, and make it easier for patients to get the help
-                            they need.
-                            <br>
-                            <br>
-                            Our AI works alongside your team to handle the calls, scheduling, questions, and routine
-                            workflows that consume staff time—so your practice can serve more patients without adding
-                            more complexity.
-                        </p>
+                    <div class="th-card">
+                        <div class="th-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h3>Books in your EHR</h3>
+                        <p>Connects to Epic, athenahealth, eClinicalWorks/healow, and ModMed. No EHR replacement, and we cover applicable EHR API integration charges.</p>
                     </div>
-                    <div class="col-12 text-center" style="margin-top:10px;">
-                        <a href="./how-it-works#request-form"
-                            style="background:var(--secondary-color); color:#fff; border-radius:8px; padding:12px 28px; text-decoration:none; display:inline-block; font-size:16px; font-weight:700; margin:6px;">
-                            Try Your Practice's AI Receptionist &#8594;
-                        </a>
-                        <a href="https://calendly.com/dr-lina-applina/30min" target="_blank"
-                            style="background:transparent; color:var(--secondary-color); border:2px solid var(--secondary-color); border-radius:8px; padding:10px 26px; text-decoration:none; display:inline-block; font-size:16px; font-weight:700; margin:6px;">
-                            Talk to Our Team &#8594;
-                        </a>
-                        <!-- NEW: offer strip -->
-                        <div class="row offer-strip">
-                            <div class="col-md-4 col-12">
-                                <div class="offer-card">
-                                    <div class="offer-icon"><i class="fas fa-clock"></i></div>
-                                    <div>
-                                        <span class="offer-title">Live in 24 hours</span>
-                                        <span class="offer-text">Your personalized AI receptionist, set up for your practice's providers, hours, and scheduling rules.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-12">
-                                <div class="offer-card">
-                                    <div class="offer-icon"><i class="fas fa-plug"></i></div>
-                                    <div>
-                                        <span class="offer-title">No new EHR or phone system</span>
-                                        <span class="offer-text">Works with the EHR and phone provider you already use. Nothing to replace.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-12">
-                                <div class="offer-card">
-                                    <div class="offer-icon"><i class="fas fa-dollar-sign"></i></div>
-                                    <div>
-                                        <span class="offer-title">Pay only per call handled</span>
-                                        <span class="offer-text">If your AI receptionist handles no calls, it costs you nothing.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="th-card">
+                        <div class="th-icon"><i class="fas fa-language"></i></div>
+                        <h3>Speaks your patients' language</h3>
+                        <p>Talks with patients in English, Spanish, and Arabic, so you can serve multilingual communities without adding language-specific staff.</p>
+                    </div>
+                </div>
+                <div class="th-center">
+                    <a class="th-btn th-btn-ghost-dark" href="https://athenaconnect.athenahealth.com/marketplace/product/top-health-ai-llc" target="_blank">View Us on the athenahealth Marketplace &#8594;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO IT'S FOR -->
+        <section class="th-section alt">
+            <div class="th-wrap">
+                <h2>Works for any specialty. Especially where patient access is hardest.</h2>
+                <p class="th-lead">Configured around your practice, not a generic template.</p>
+                <div class="th-grid">
+                    <div class="th-card">
+                        <h3>Practices serving older adults</h3>
+                        <p>For patients who prefer the phone over portals and apps.</p>
+                    </div>
+                    <div class="th-card">
+                        <h3>Free clinics &amp; safety-net practices</h3>
+                        <p>Extends patient access when staff and budgets are limited.</p>
+                    </div>
+                    <div class="th-card">
+                        <h3>Multilingual &amp; immigrant communities</h3>
+                        <p>Natural conversations in English, Spanish, and Arabic.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- HOW IT WORKS -->
+        <section class="th-section">
+            <div class="th-wrap">
+                <h2>How it works</h2>
+                <p class="th-lead">Most practices are live within a day.</p>
+                <div class="th-steps">
+                    <div class="th-step"><div class="num">1</div><h3>We configure it</h3><p>Around your providers, hours, and scheduling rules.</p></div>
+                    <div class="th-step"><div class="num">2</div><h3>We connect your EHR</h3><p>Your team keeps its existing workflow.</p></div>
+                    <div class="th-step"><div class="num">3</div><h3>It answers calls</h3><p>Calls, questions, and scheduling, based on your rules.</p></div>
+                    <div class="th-step"><div class="num">4</div><h3>Your team stays in control</h3><p>Staff focus on patients while the AI handles repetitive tasks.</p></div>
+                </div>
+                <div class="th-center">
+                    <a class="th-btn th-btn-ghost-dark" href="./how-it-works">See How It Works &#8594;</a>
+                    <a class="th-btn th-btn-ghost-dark" href="./case-studies">See Real Results &#8594;</a>
+                </div>
+            </div>
+        </section>
 
-        <section class="we_serve custom">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Built for Every Specialty. Especially Where Patient Access Is Harder.</h2>
-                        <p style="font-weight:400; font-size:16px; line-height:1.6;">
-                            Top Health AI works across medical specialties, adapting to each practice's providers,
-                            workflows, scheduling rules, and patients. We bring particular expertise where patient
-                            access and communication require more than another portal, app, or automated message.
-                        </p>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <p style="font-weight:400; font-size:16px; line-height:1.6;">
-                            <strong style="font-weight:700;">Practices Serving Older Adults</strong><br>
-                            Make it easier for patients who prefer the phone or may struggle with portals, apps, and
-                            complex digital workflows to reach and interact with your practice.
-                        </p>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <p style="font-weight:400; font-size:16px; line-height:1.6;">
-                            <strong style="font-weight:700;">Free Clinics & Safety-Net Practices</strong><br>
-                            Extend patient access and reduce pressure on limited staff with AI designed for practices
-                            operating with significant resource and staffing constraints.
-                        </p>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <p style="font-weight:400; font-size:16px; line-height:1.6;">
-                            <strong style="font-weight:700;">Practices Serving Multilingual & Immigrant Communities</strong><br>
-                            Communicate naturally with patients across languages, including English, Spanish, and
-                            Arabic, while keeping workflows connected to the practice.
-                        </p>
-                    </div>
-                    <div class="col-12 text-center" style="margin-top:10px;">
-                        <a href="https://calendly.com/dr-lina-applina/30min" target="_blank"
-                            style="background:var(--secondary-color); color:#fff; border-radius:8px; padding:12px 28px; text-decoration:none; display:inline-block; font-size:16px; font-weight:700;">
-                            Talk to Our Team &#8594;
-                        </a>
-                    </div>
-                </div>
+        <!-- MISSED CALLS REPORT (lower-commitment option) -->
+        <section class="th-report">
+            <div class="th-wrap">
+                <span class="th-eyebrow" style="color:#e3a36f;">Not ready to try it? Start here. Free for independent practices &middot; 10 per month</span>
+                <h2>How easy is it for patients to reach your practice?</h2>
+                <p>Most practices never find out how many patients give up before reaching the front desk. Get a free Missed Calls Report, delivered by email within one business day.</p>
+                <a class="th-btn th-btn-primary" style="margin-top:24px;" href="./missed-calls-report">Get My Free Missed Calls Report &#8594;</a>
+                <p class="fine">Free. No sales call. No software to install. Limited to 10 practices a month.</p>
             </div>
         </section>
-        <section class="we_serve custom pt-0">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h2>Integrated With the Systems Your Practice Already Uses</h2>
-                        <p style="font-weight:400; font-size:16px; line-height:1.6;">
-                            Top Health AI integrates with Epic, athenahealth, eClinicalWorks/healow, and ModMed, bringing
-                            AI-powered patient access into the systems and workflows your team already uses.
-                        </p>
-                        <p style="font-weight:400; font-size:16px; line-height:1.6;"><strong style="font-weight:700;">No EHR replacement. No disconnected workflow. Less burden on your
-                                staff.</strong></p>
-                        <p style="margin-top:20px;">
-                            <a href="https://athenaconnect.athenahealth.com/marketplace/product/top-health-ai-llc"
-                                target="_blank"
-                                style="background:var(--secondary-color); color:#fff; border-radius:8px; padding:12px 28px; text-decoration:none; display:inline-block; font-size:16px; font-weight:700;">
-                                View Us on the athenahealth Marketplace &#8594;
-                            </a>
-                        </p>
-                    </div>
-                </div>
+
+        <!-- FINAL CTA -->
+        <section class="th-final">
+            <div class="th-wrap">
+                <h2>See an AI receptionist set up for your practice</h2>
+                <p>Live in 24 hours. No EHR or phone changes. Pay only per call handled.</p>
+                <p style="margin-top:22px;">
+                    <a class="th-btn th-btn-primary" href="./how-it-works#request-form">Try Your Practice's AI Receptionist &#8594;</a>
+                    <a class="th-btn th-btn-ghost" href="https://calendly.com/dr-lina-applina/30min" target="_blank">Talk to Our Team</a>
+                </p>
             </div>
         </section>
-        <section class="we_serve bagde">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h2>Built Differently for the Practices We Serve</h2>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="achievement">
-                            <div class="content">
-                                <span class="title" style="display:block; font-size:19px; font-weight:700; margin-bottom:8px;">
-                                    Easier for Older Patients to Use
-                                </span>
-                                <span class="description" style="display:block; font-size:16px; font-weight:400; line-height:1.6;">
-                                    Designed for more natural patient conversations—with a pace that adapts to
-                                    the caller, better handling of pauses when sharing phone numbers and dates of
-                                    birth, and smoother turn-taking throughout the call.
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="achievement">
-                            <div class="content">
-                                <span class="title" style="display:block; font-size:19px; font-weight:700; margin-bottom:8px;">
-                                    English, Spanish & Arabic </span>
-                                <span class="description" style="display:block; font-size:16px; font-weight:400; line-height:1.6;">
-                                    Communicate naturally with patients in English, Spanish, and Arabic, helping
-                                    practices serve multilingual communities without adding language-specific
-                                    staffing.
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="achievement">
-                            <div class="content">
-                                <span class="title" style="display:block; font-size:19px; font-weight:700; margin-bottom:8px;"> EHR Integration Without Added API Costs </span>
-                                <span class="description" style="display:block; font-size:16px; font-weight:400; line-height:1.6;">
-                                    Top Health AI covers applicable EHR API integration charges on your practice's
-                                    behalf, so you can connect your AI to existing workflows without a separate
-                                    API bill.
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 text-center" style="margin-top:20px;">
-                        <a href="./how-it-works#request-form"
-                            style="background:var(--secondary-color); color:#fff; border-radius:8px; padding:12px 28px; text-decoration:none; display:inline-block; font-size:16px; font-weight:700;">
-                            Try Your Practice's AI Receptionist &#8594;
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="we_serve custom pt-0">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Where We Specialize</h2>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="card">
-                            <img class="card-img-top"
-                                src="./Content/images/Specialty_Care_Team_Circular.png"
-                                alt="Care team supporting patients across primary care, orthopedics, and behavioral health">
-                            <div class="card-body">
-                                <p class="card-text"> Patient Access Across Specialties</p>
-                                <p style="font-weight:400; font-size:16px; line-height:1.6;">From primary care and
-                                    behavioral health to medical and surgical specialties, our AI is configured
-                                    around your practice—not a one-size-fits-all specialty template.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="card">
-                            <img class="card-img-top"
-                                src="./Content/images/Jenna_Front_Office_Circular.png"
-                                alt="Jenna AI receptionist handling scheduling and front-office tasks">
-                            <div class="card-body">
-                                <p class="card-text"> Scheduling & Front-Office Workflows </p>
-                                <p style="font-weight:400; font-size:16px; line-height:1.6;">Automate routine
-                                    scheduling, calls, and administrative workflows while following your
-                                    practice's providers, hours, rules, and processes.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div class="card">
-                            <img class="card-img-top"
-                                src="./Content/images/EHR_Integration_Circular.png"
-                                alt="AI connected directly to practice EHR and scheduling systems">
-                            <div class="card-body">
-                                <p class="card-text"> EHR-Connected Automation </p>
-                                <p style="font-weight:400; font-size:16px; line-height:1.6;">Connect AI directly
-                                    with the systems your practice already uses so information and workflows
-                                    don't live in another disconnected tool.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="why_choose custom">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Why Choose Top Health AI?</h2>
-                        <div class="faq-section">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div id="accordion">
-                                        <div class="card">
-                                            <div class="card-header" id="heading-1">
-                                                <h5 class="mb-0">
-                                                    <a role="button" data-toggle="collapse" href="#collapse-1"
-                                                        aria-expanded="false" aria-controls="collapse-1">
-                                                        Built for Real Medical Practices, Across Specialties
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapse-1" class="collapse show" data-parent="#accordion"
-                                                aria-labelledby="heading-1">
-                                                <div class="card-body" style="font-size:16px; font-weight:400; line-height:1.6;">
-                                                    Top Health AI is built specifically around how medical practices
-                                                    operate—not adapted from a generic call center script.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" id="heading-2">
-                                                <h5 class="mb-0">
-                                                    <a class="collapsed" role="button" data-toggle="collapse"
-                                                        href="#collapse-2" aria-expanded="false"
-                                                        aria-controls="collapse-2">
-                                                        Integrated With the EHR Systems Your Team Already Uses
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapse-2" class="collapse" data-parent="#accordion"
-                                                aria-labelledby="heading-2">
-                                                <div class="card-body" style="font-size:16px; font-weight:400; line-height:1.6;">
-                                                    We connect directly with Epic, athenahealth, eClinicalWorks/healow, and
-                                                    ModMed, so your team keeps working the way it already does.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" id="heading-3">
-                                                <h5 class="mb-0">
-                                                    <a class="collapsed" role="button" data-toggle="collapse"
-                                                        href="#collapse-3" aria-expanded="false"
-                                                        aria-controls="collapse-3">
-                                                        Specialized for Practices With Complex Patient Access Needs
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapse-3" class="collapse" data-parent="#accordion"
-                                                aria-labelledby="heading-3">
-                                                <div class="card-body" style="font-size:16px; font-weight:400; line-height:1.6;">
-                                                    Built for patients who need more than a portal or app—including
-                                                    older adults, safety-net populations, and non-English speakers.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" id="heading-6">
-                                                <h5 class="mb-0">
-                                                    <a class="collapsed" role="button" data-toggle="collapse"
-                                                        href="#collapse-6" aria-expanded="false"
-                                                        aria-controls="collapse-6">
-                                                        Personalized to Your Practice, Providers & Workflows
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapse-6" class="collapse" data-parent="#accordion"
-                                                aria-labelledby="heading-6">
-                                                <div class="card-body" style="font-size:16px; font-weight:400; line-height:1.6;">
-                                                    Every deployment is configured around your specific providers,
-                                                    hours, and scheduling rules—not a one-size-fits-all setup.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" id="heading-5">
-                                                <h5 class="mb-0">
-                                                    <a class="collapsed" role="button" data-toggle="collapse"
-                                                        href="#collapse-5" aria-expanded="false"
-                                                        aria-controls="collapse-5">
-                                                        Built for HIPAA-Compliant Healthcare Workflows
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapse-5" class="collapse" data-parent="#accordion"
-                                                aria-labelledby="heading-5">
-                                                <div class="card-body" style="font-size:16px; font-weight:400; line-height:1.6;">
-                                                    We prioritize privacy at every step and build our workflows
-                                                    around HIPAA requirements, working within the tools and
-                                                    safeguards you already use.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center" style="margin-top:24px;">
-                            <a href="./case-studies"
-                                style="background:var(--secondary-color); color:#fff; border-radius:8px; padding:12px 28px; text-decoration:none; display:inline-block; font-size:16px; font-weight:700;">
-                                See Real Results &#8594;
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="work_area custom">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>How It Works</h2>
-                        <div class="content_area">
-                            <span>1</span>
-                            <h3>Fast, Friendly Onboarding</h3>
-                            <p style="font-size:16px; font-weight:400; line-height:1.6;">
-                                We configure your AI around your practice, specialty, providers, hours, scheduling
-                                rules, and workflows.
-                            </p>
-                        </div>
-                        <div class="content_area">
-                            <span>2</span>
-                            <h3>Connect Your Existing Systems</h3>
-                            <p style="font-size:16px; font-weight:400; line-height:1.6;">
-                                We integrate with your existing EHR and workflows so your team doesn't have to start
-                                over.
-                            </p>
-                        </div>
-                        <div class="content_area">
-                            <span>3</span>
-                            <h3>Your AI Goes to Work</h3>
-                            <p style="font-size:16px; font-weight:400; line-height:1.6;">
-                                Your AI handles calls, questions, scheduling, and routine requests based on your
-                                practice's rules.
-                            </p>
-                        </div>
-                        <div class="content_area">
-                            <span>4</span>
-                            <h3>Your Team Stays in Control</h3>
-                            <p style="font-size:16px; font-weight:400; line-height:1.6;">
-                                Staff can focus on patients and higher-value work while AI handles the repetitive
-                                tasks in the background.
-                            </p>
-                        </div>
-                        <div class="text-center" style="margin-top:20px;">
-                            <a href="./how-it-works"
-                                style="background:var(--secondary-color); color:#fff; border-radius:8px; padding:12px 28px; text-decoration:none; display:inline-block; font-size:16px; font-weight:700;">
-                                See How It Works &#8594;
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="trust_area custom">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>
-                            The Top Health AI Difference
-                        </h2>
-                        <h3>Access. Capacity. Connection.</h3>
-                        <p style="font-size:16px; font-weight:400; line-height:1.6;">
-                            Top Health AI helps practices across specialties serve more patients without adding
-                            more burden to their teams. Better access for patients, more capacity for staff, and
-                            technology configured around how each practice actually works.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="feature_explorecta pt-4 pb-4">
-            <div class="container">
-                <div class="feature_explorecta _text">
-                    <h2>Ready to See What AI Can Do for Your Practice?</h2>
-                    <p style="font-size:16px; font-weight:400; line-height:1.6;">Whatever your specialty, experience an AI receptionist configured around your own
-                        practice—or talk with our team about your specific needs.</p>
-                    <!-- NEW: offer recap -->
-                    <p style="font-size:16px; font-weight:700; line-height:1.6; margin-top:10px;">
-                        <i class="fas fa-check"></i> Live in 24 hours &nbsp;&nbsp;
-                        <i class="fas fa-check"></i> No EHR or phone changes &nbsp;&nbsp;
-                        <i class="fas fa-check"></i> Pay only per call handled
-                    </p>
-                    <p style="margin-top:20px;">
-                        <a href="./how-it-works#request-form"
-                            style="background:var(--secondary-color); color:#fff; border-radius:8px; padding:14px 32px; font-size:16px; font-weight:700; text-decoration:none; display:inline-block; margin:6px;">
-                            Try Your Practice's AI Receptionist &#8594;
-                        </a>
-                        <a href="https://calendly.com/dr-lina-applina/30min" target="_blank"
-                            style="background:transparent; color:#fff; border:2px solid #fff; border-radius:8px; padding:12px 30px; font-size:16px; font-weight:700; text-decoration:none; display:inline-block; margin:6px;">
-                            Talk to Our Team &#8594;
-                        </a>
-                    </p>
-                    <!-- NEW: lead magnet text link -->
-                    <p style="margin-top:14px; font-size:16px;">
-                        <a href="./missed-calls-report" style="color:#fff; text-decoration:underline; font-weight:600;">
-                            Not sure yet? Get a free Missed Calls Report for your practice &#8594;
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </section>
+
     </main>
 
 
