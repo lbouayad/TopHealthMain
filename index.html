@@ -43,7 +43,7 @@
     <meta property="og:title" content="AI Receptionist for Medical Practices | Top Health AI" />
     <meta property="og:description" content="AI receptionist that answers every patient call, books appointments in Epic, athenahealth, eClinicalWorks, and ModMed, and speaks English, Spanish, and Arabic. Live in 24 hours. Pay only per call handled." />
     <meta property="og:url" content="https://tophealth.ai/" />
-    <meta property="og:image" content="https://tophealth.ai/Content/images/Banner.png" />
+    <meta property="og:image" content="https://tophealth.ai/Content/images/Banner_Receptionist.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">
     {
@@ -142,7 +142,19 @@
         .th-btn-ghost:hover { background:rgba(255,251,247,.12); }
         .th-btn-ghost-dark { background:transparent; color:#c06f33 !important; border:2px solid #c06f33; }
 
-        /* Hero: text left, picture right */
+        /* Banner on desktop/tablet, text hero on phones */
+        .th-banner-desktop { display:block; background:#fffbf7; }
+        .th-banner-desktop img { display:block; width:100%; height:auto; }
+        .th-cta-bar { background:#fffbf7; text-align:center; padding:22px 0 18px; border-bottom:1px solid #f1e5d8; }
+        .th-cta-bar .th-btn { margin:6px 8px; }
+        .th-cta-bar .th-btn-ghost-dark { background:#fff; }
+        .th-hero-mobile { display:none; }
+        @media (max-width: 768px) {
+            .th-banner-desktop, .th-cta-bar { display:none; }
+            .th-hero-mobile { display:block; }
+        }
+
+        /* Text hero (phones): text left, picture right */
         .th-hero { background:#30211f; color:#fffbf7; padding:64px 0; }
         .th-hero .th-wrap { display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; }
         .th-hero h1 { color:#fffbf7; font-size:clamp(34px,4.8vw,54px); line-height:1.1; font-weight:800; margin:0 0 18px; }
@@ -270,8 +282,18 @@
 
     <main>
 
-        <!-- HERO: says what the product is, immediately -->
-        <section class="th-hero">
+        <!-- DESKTOP / TABLET: new banner + buttons -->
+        <div class="th-banner-desktop">
+            <img src="./Content/images/Banner_Receptionist.png"
+                alt="Top Health AI: the AI receptionist for medical practices. Answers patient calls, books in your EHR, speaks English, Spanish and Arabic. Live in 24 hours.">
+        </div>
+        <div class="th-cta-bar">
+            <a class="th-btn th-btn-primary" href="./how-it-works#request-form">Try Your Practice's AI Receptionist &#8594;</a>
+            <a class="th-btn th-btn-ghost-dark" href="https://calendly.com/dr-lina-applina/30min" target="_blank">Talk to Our Team</a>
+        </div>
+
+        <!-- PHONES: text hero -->
+        <section class="th-hero th-hero-mobile">
             <div class="th-wrap">
                 <div>
                     <span class="th-eyebrow">Top Health AI</span>
